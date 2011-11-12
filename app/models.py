@@ -42,11 +42,13 @@ class Comment(models.Model):
         return 0
 
     def to_dict(self):
-        model = model_to_dict(self)
-        
+        model = model_to_dict(self, exclude=['price'])
+
+        model['user_name'] = self.user.username
+        model['organization_name'] = self.organization.name
         model['created_at'] = self.created_at
         model['rating'] = self.rating
-        
+
         return model
 
 
