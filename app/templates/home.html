@@ -16,9 +16,15 @@
     <script src="{{ STATIC_URL }}javascripts/vendor/underscore.min.js"></script>
     <script src="{{ STATIC_URL }}javascripts/vendor/backbone.min.js"></script>
 
-    <script src="{{ STATIC_URL }}javascripts/app/app.js"></script>
+    <script src="{{ STATIC_URL }}javascripts/app/models/comment.js"></script>
+    <script src="{{ STATIC_URL }}javascripts/app/models/organization.js"></script>
+    <script src="{{ STATIC_URL }}javascripts/app/models/rating.js"></script>
 
-    <!--<link type="text/css" rel="stylesheet" href="{{ STATIC_URL }}stylesheets/css/screen.css">-->
+    <script src="{{ STATIC_URL }}javascripts/app/views/comments_list.js"></script>
+
+    <script src="{{ STATIC_URL }}javascripts/app/routes/app.js"></script>
+
+    <link type="text/css" rel="stylesheet" href="{{ STATIC_URL }}stylesheets/screen.css">
 
     {% include "js_templates.html" %}
   </head>
