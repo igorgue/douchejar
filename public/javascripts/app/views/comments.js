@@ -23,17 +23,16 @@ $(function() {
 
     initialize: function() {
       _.bindAll(this, 'render');
-
-      Comments.bind('all', this.render, this);
-      Comments.fetch();
+      comments.bind('all', this.render, this);
     },
 
     render: function() {
-      Comments.each(function(comment) {
+      var commentListView = this;
+
+      comments.each(function(comment) {
         commentView = new CommentView({model: comment});
 
-        $(this.el).append('<h1>Test</h1>');
-        $(this.el).append(commentView.render().el);
+        $(commentListView.el).append(commentView.render().el);
       });
 
       $('body').append(this.el);
