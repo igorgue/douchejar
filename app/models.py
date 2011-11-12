@@ -9,6 +9,10 @@ class Organization(models.Model):
         return "{0}".format(self.name.encode('utf-8'))
 
 
+class CommentManager(models.Manager):
+    def get_query_set(self):
+        return super(CommentManager, self).get_query_set().order_by('-created_at')
+
 class Comment(models.Model):
     comment = models.CharField(max_length=140)
     price = models.DecimalField(decimal_places=2, max_digits=9, default=1.00)
@@ -16,14 +20,22 @@ class Comment(models.Model):
     user = models.ForeignKey(User, db_index=True)
     created_at = models.DateTimeField(auto_now_add=True)
 
+    objects = CommentManager()
+
     def __unicode__(self):
         return "{0}... by {1}".format(self.comment[:25].encode('utf-8'), self.user.username)
 
+    @property
     def rating(self):
         return 0
 
     def to_dict(self):
-        return model_to_dict(self)
+        model = model_to_dict(self)
+        
+        model['date_at'] = self.created_at
+        model['rating'] = self.rating
+        
+        return model
 
 
 class Rating(models.Model):

@@ -1,5 +1,8 @@
+from django.shortcuts import get_object_or_404
 from django.views.generic import View
+
 from utils.decorators import as_json
+from app import models
 
 class Comments(View):
     @as_json
@@ -14,7 +17,13 @@ class Comments(View):
         """
         Returns all comments
         """
-        return {'message': 'get'}
+        comment_models = models.Comment.objects.all()
+        comments = []
+
+        for comment in comment_models:
+            comments.append(comment.to_dict())
+
+        return comments
 
 
 class Comment(View):
@@ -23,7 +32,9 @@ class Comment(View):
         """
         Returns specific comment
         """
-        return {'message': 'hello-get'}
+        comment = get_object_or_404(models.Comment, id=comment_id)
+
+        return comment.to_dict()
 
 
 class CommentRating(View):
