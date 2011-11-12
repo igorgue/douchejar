@@ -32,8 +32,11 @@ $(function() {
       Comments.each(function(comment) {
         commentView = new CommentView({model: comment});
 
+        $(this.el).append('<h1>Test</h1>');
         $(this.el).append(commentView.render().el);
       });
+
+      $('body').append(this.el);
 
       return this;
     }
