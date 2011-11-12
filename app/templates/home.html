@@ -9,13 +9,12 @@
     <meta charset="utf-8">
 
     <title>Douchejar!</title>
-    <meta name="author" content="Igor Guerrero <igfgt1@gmail.com>">
-
-    <script src="{{ STATIC_URL }}javascripts/vendor/modernizr.min.js"></script>
-    <script src="{{ STATIC_URL }}javascripts/vendor/jquery.min.js"></script>
-    <script src="{{ STATIC_URL }}javascripts/vendor/underscore.min.js"></script>
-    <script src="{{ STATIC_URL }}javascripts/vendor/backbone.min.js"></script>
-    <script src="{{ STATIC_URL }}javascripts/vendor/date.js"></script>
+    <script src="{{ STATIC_URL }}javascripts/lib/modernizr.min.js"></script>
+    <script src="{{ STATIC_URL }}javascripts/lib/jquery.min.js"></script>
+    <script src="{{ STATIC_URL }}javascripts/lib/underscore.min.js"></script>
+    <script src="{{ STATIC_URL }}javascripts/lib/backbone.min.js"></script>
+    <script src="{{ STATIC_URL }}javascripts/lib/date.js"></script>
+    <script src="{{ STATIC_URL }}javascripts/lib/facebox/facebox.js"></script>
 
     {% include "js_templates.html" %}
 
@@ -28,8 +27,21 @@
     <script src="{{ STATIC_URL }}javascripts/app/routes/app.js"></script>
 
     <link type="text/css" rel="stylesheet" href="{{ STATIC_URL }}stylesheets/screen.css">
+    <link type="text/css" rel="stylesheet" href="{{ STATIC_URL }}javascripts/lib/facebox/facebox.css">
+
+    <script type="text/javascript" charset="utf-8">
+      $.facebox.settings.closeImage = "{{ STATIC_URL }}javascripts/lib/facebox/closelabel.png";
+      $.facebox.settings.loadingImage = "{{ STATIC_URL }}javascripts/lib/facebox/loading.gif";
+
+      $(document).ready(function($) {
+        $('a[rel*=facebox]').facebox();
+      });
+    </script>
   </head>
 
   <body>
+    <a href="#info" rel="facebox">link</a>
+
+    <div id="info" style="display:none;">test</div>
   </body>
 </html>
