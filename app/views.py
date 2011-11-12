@@ -3,5 +3,5 @@ from django.template import RequestContext
 
 def home(request):
     """Home page, just render the main template"""
-    c = RequestContext(request, {})
-    return render_to_response("home.html", c)
+    context = RequestContext(request, {})
+    return render_to_response("home.html", context)
