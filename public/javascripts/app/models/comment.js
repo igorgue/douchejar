@@ -3,8 +3,8 @@ $(function() {
     defaults: {
       comment: "",
       price: 1.00,
-      username: "",
-      created_date: new Date()
+      user: {},
+      created_at: Date()
     }
   });
 });
