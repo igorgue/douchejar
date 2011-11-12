@@ -2,18 +2,23 @@ from django.contrib.auth.models import User
 from django.db import models
 
 class Comment(models.Model):
-    comment = models.CharField(max_length=140, blank=False, null=False)
+    comment = models.CharField(max_length=140)
     price = models.DecimalField(decimal_places=2, max_digits=9, default=1.00)
     user = models.ForeignKey(User, db_index=True)
     created_date = models.DateTimeField(auto_now_add=True)
 
+    def __unicode__(self):
+        return "{0}... by {1}".format(self.comment[:25].encode('utf-8'), self.user.username)
 
 class Rating(models.Model):
     thumbs_up = models.BooleanField(null=False)
     comment = models.ForeignKey(Comment, db_index=True)
 
+    def __unicode__(self):
+        return "Comment #{0}, rated {1}".format(comment.comment.encode('utf-8'), thumbs_up)
 
 class Organization(models.Model):
-    name = models.CharField(max_length=255, blank=False, null=False)
+    name = models.CharField(max_length=255)
 
-
+    def __unicode__(self):
+        return "{0}".format(self.name.encode('utf-8'))
