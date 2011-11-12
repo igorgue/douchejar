@@ -42,7 +42,7 @@ class Comment(models.Model):
         return 0
 
     def to_dict(self):
-        model = model_to_dict(self)
+        model = model_to_dict(self, exclude=['price'])
         
         model['created_at'] = self.created_at
         model['rating'] = self.rating
