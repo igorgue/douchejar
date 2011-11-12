@@ -1,5 +1,5 @@
 $(function() {
-  var Comment = Backbone.Model.extend({
+  window.Comment = Backbone.Model.extend({
     defaults: {
       id: 0,
       comment: "",
@@ -9,7 +9,7 @@ $(function() {
     }
   });
 
-  var Comments = Backbone.Collection.extend({
+  window.Comments = Backbone.Collection.extend({
     model: Comment,
     url: "/api/comments"
   });
