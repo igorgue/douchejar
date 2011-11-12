@@ -2,15 +2,15 @@ $(function() {
   var Application = Backbone.Router.extend({
     routes: {
       '': "home",
-      '/test': "test"
+      '/comment/:id': "comment"
     },
 
     home: function() {
       console.log("/");
     },
 
-    test: function() {
-      console.log('/test');
+    comment: function(id) {
+      console.log('/comment');
     }
   });
 
