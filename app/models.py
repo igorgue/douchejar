@@ -19,6 +19,9 @@ class Comment(models.Model):
     def __unicode__(self):
         return "{0}... by {1}".format(self.comment[:25].encode('utf-8'), self.user.username)
 
+    def rating(self):
+        return 0
+
     def to_dict(self):
         return model_to_dict(self)
 
@@ -26,6 +29,10 @@ class Comment(models.Model):
 class Rating(models.Model):
     thumbs_up = models.BooleanField(null=False)
     comment = models.ForeignKey(Comment, db_index=True)
+    user = models.ForeignKey(User, db_index=True)
+
+    class Meta:
+        unique_together = ('comment', 'user',)
 
     def __unicode__(self):
-        return "Comment #{0}, rated {1}".format(comment.comment.encode('utf-8'), thumbs_up)
+        return "Comment #{0}, rated {1}".format(self.comment.comment.encode('utf-8'), self.thumbs_up)
