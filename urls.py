@@ -4,10 +4,12 @@ from django.contrib import admin
 admin.autodiscover()
 
 urlpatterns = patterns('',
-    # Examples:
-    # url(r'^$', 'douchejar.views.home', name='home'),
-    # url(r'^douchejar/', include('douchejar.foo.urls')),
+    # App stuff.
+    url(r'^$', include('app.urls')),
 
-    # Admin
+    # API stuff.
+    url(r'^api/', include('app.urls')),
+
+    # Admin.
     url(r'^admin/', include(admin.site.urls)),
 )
