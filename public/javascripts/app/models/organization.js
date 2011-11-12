@@ -4,4 +4,11 @@ $(function() {
       name: ""
     }
   });
+
+  window.Organizations = Backbone.Collection.extend({
+    model: Organization,
+    url: "/api/organizations"
+  });
+
+  window.organizations = new Organizations();
 });
