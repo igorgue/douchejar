@@ -4,5 +4,7 @@ from django.http import HttpResponse
 
 def latest(request):
     """Get the latest douchey comments."""
-    data = {'message': "change me!"}
-    return HttpResponse("{'message': ")
+    data = [
+        {'comment': "change me!"}
+    ]
+    return HttpResponse(json.dumps(data), mimetype="application/json")
