@@ -5,7 +5,7 @@ from functools import wraps
 
 import json
 
-def as_json():
+def as_json(view):
     """
     Decorates a dictionary to json with headers
     """
@@ -18,4 +18,4 @@ def as_json():
         
         return wraps(view_func, assigned=available_attrs(view_func))(_wrapped_view)
     
-    return decorator
+    return decorator(view)
