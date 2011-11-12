@@ -2,7 +2,9 @@ from django.contrib.auth.models import User
 from django.forms.models import model_to_dict
 from django.db import models
 
-JAR_TIP_POINT = 100.00
+from decimal import Decimal
+
+JAR_TIP_POINT = Decimal('100.00')
 
 class Organization(models.Model):
     name = models.CharField(max_length=255)
@@ -12,10 +14,23 @@ class Organization(models.Model):
 
     @property
     def total_money_accumilated(self):
-        return comment_set.annotate(Sum('price'))
+        total = self.comment_set.aggregate(models.Sum('price'))['price__sum']
+
+        return total or 0 # may be null :(
+
+    @property
+    def money_accumilated(self):
+        times_accumulated = int(self.total_money_accumilated / JAR_TIP_POINT)
+
+        return self.total_money_accumilated - (times_accumulated * JAR_TIP_POINT)
 
     def to_dict(self):
-        return model_to_dict(self)
+        model = model_to_dict(self, exclude=['price'])
+
+        model['total_accumilated'] = self.total_money_accumilated
+        model['money_accumilated'] = self.money_accumilated
+
+        return model
 
 
 class CommentManager(models.Manager):
