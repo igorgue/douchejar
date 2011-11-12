@@ -1,10 +1,10 @@
-import json
+from utils.decorators import as_json
 
-from django.http import HttpResponse
-
+@as_json()
 def latest(request):
     """Get the latest douchey comments."""
     data = [
         {'comment': "change me!"}
     ]
-    return HttpResponse(json.dumps(data), mimetype="application/json")
+
+    return data
