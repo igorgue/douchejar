@@ -9,8 +9,10 @@ $(function() {
     }
   });
 
-  window.Comments = Backbone.Collection.extend({
+  var Comments = Backbone.Collection.extend({
     model: Comment,
-    url: "/comments"
+    url: "/api/comments"
   });
+
+  window.Comments = new Comments();
 });
