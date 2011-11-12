@@ -1,10 +1,35 @@
+from django.views.generic import View
 from utils.decorators import as_json
 
-@as_json()
-def latest(request):
-    """Get the latest douchey comments."""
-    data = [
-        {'comment': "change me!"}
-    ]
+class Comments(View):
+    @as_json
+    def put(self, request):
+        """
+        Adds new comment
+        """
+        return {'message': 'put'}
 
-    return data
+    @as_json
+    def get(self, request):
+        """
+        Returns all comments
+        """
+        return {'message': 'get'}
+
+
+class Comment(View):
+    @as_json
+    def get(self, request, comment_id):
+        """
+        Returns specific comment
+        """
+        return {'message': 'hello-get'}
+
+
+class CommentRating(View):
+    @as_json
+    def put(self, request, comment_id):
+        """
+        Adds a new rating for the comment (+/-)
+        """
+        return {'message': 'hello-put'}
