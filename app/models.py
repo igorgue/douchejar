@@ -7,9 +7,18 @@ class Comment(models.Model):
     user = models.ForeignKey(User, db_index=True)
     created_date = models.DateTimeField(auto_now_add=True)
 
+    def __unicode__(self):
+        return "{0}... by {1}".format(self.comment[:25].encode('utf-8'), self.user.username)
+
 class Rating(models.Model):
     thumbs_up = models.BooleanField(null=False)
     comment = models.ForeignKey(Comment, db_index=True)
 
+    def __unicode__(self):
+        return "Comment #{0}, rated {1}".format(comment.comment.encode('utf-8'), thumbs_up)
+
 class Organization(models.Model):
     name = models.CharField(max_length=255)
+
+    def __unicode__(self):
+        return "{0}".format(self.name.encode('utf-8'))
