@@ -10,7 +10,7 @@ $(function() {
     },
 
     comment: function(id) {
-      console.log('/comment');
+      console.log('/comment/' + id);
     }
   });
 
