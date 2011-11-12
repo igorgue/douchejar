@@ -11,7 +11,11 @@ $(function() {
     },
 
     render: function() {
-      $(this.el).html(this.template(this.model.toJSON()));
+      var data = this.model.toJSON();
+
+      data['timeAgo'] = this.model.timeAgo();
+
+      $(this.el).html(this.template(data));
 
       return this;
     }
