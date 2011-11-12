@@ -10,7 +10,7 @@ $(function() {
     },
 
     home: function() {
-      this.commentListView.render();
+      comments.fetch();
     },
 
     comment: function(id) {
