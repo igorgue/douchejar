@@ -4,6 +4,7 @@
 *.log
 *.swp
 *.swo
+data
 build
 dist
 paython.egg-info
