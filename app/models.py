@@ -2,11 +2,20 @@ from django.contrib.auth.models import User
 from django.forms.models import model_to_dict
 from django.db import models
 
+JAR_TIP_POINT = 100.00
+
 class Organization(models.Model):
     name = models.CharField(max_length=255)
 
     def __unicode__(self):
         return "{0}".format(self.name.encode('utf-8'))
+
+    @property
+    def total_money_accumilated(self):
+        return comment_set.annotate(Sum('price'))
+
+    def to_dict(self):
+        return model_to_dict(self)
 
 
 class CommentManager(models.Manager):

@@ -44,3 +44,28 @@ class CommentRating(View):
         Adds a new rating for the comment (+/-)
         """
         return {'message': 'hello-put'}
+
+
+class Organizations(View):
+    @as_json
+    def get(self, request):
+        """
+        Returns all organization
+        """
+        organization_models = models.Organization.objects.all()
+        organizations = []
+
+        for organization in organization_models:
+            organizations.append(organization.to_dict())
+
+        return organizations
+
+class Organization(View):
+    @as_json
+    def get(self, request, organization_id):
+        """
+        Returns specific organization
+        """
+        organization = get_object_or_404(models.Organization, id=organization_id)
+
+        return organization.to_dict()
