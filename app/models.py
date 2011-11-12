@@ -27,12 +27,24 @@ class Comment(models.Model):
 
     @property
     def rating(self):
+        ratings = self.rating_set.all().values_list('thumbs_up')
+        thumbs_up = 0
+
+        for rate in ratings:
+            if rate[0]:
+                thumbs_up += 1
+
+        try:
+            return len(ratings) / float(thumbs_up)
+        except ZeroDivisionError:
+            pass
+
         return 0
 
     def to_dict(self):
         model = model_to_dict(self)
         
-        model['date_at'] = self.created_at
+        model['created_at'] = self.created_at
         model['rating'] = self.rating
         
         return model
