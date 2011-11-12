@@ -1,5 +1,9 @@
+import os
+
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
+
+PROJECT_PATH = os.path.dirname(__file__)
 
 DATABASES = {
     'default': {
