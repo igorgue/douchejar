@@ -1,0 +1,37 @@
+[
+    {
+        "pk": 1, 
+        "model": "app.organization", 
+        "fields": {
+            "name": "Corcoran Gallery of Art"
+        }
+    },
+    {
+        "pk": 2, 
+        "model": "app.organization", 
+        "fields": {
+            "name": "National Gallery of Art"
+        }
+    },
+    {
+        "pk": 3, 
+        "model": "app.organization", 
+        "fields": {
+            "name": "New Hampshire Children's Museum"
+        }
+    },
+    {
+        "pk": 4, 
+        "model": "app.organization", 
+        "fields": {
+            "name": "New Hampshire Historical Society"
+        }
+    },
+    {
+        "pk": 5, 
+        "model": "app.organization", 
+        "fields": {
+            "name": "Pro Portsmouth Inc."
+        }
+    }
+]
