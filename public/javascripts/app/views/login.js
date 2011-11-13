@@ -5,7 +5,8 @@ $(function() {
     template: _.template($("#login").html()),
 
     events: {
-      'click input[type="button"]': 'login'
+      'click a.login': 'login',
+      'click a.cancel': 'cancel'
     },
 
     initialize: function() {
@@ -30,6 +31,14 @@ $(function() {
       }).save().success(function(){
         view.remove();
       });
+
+      return false;
+    },
+
+    cancel: function(){
+      this.remove();
+
+      return false;
     }
   });
 

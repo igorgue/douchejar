@@ -42,5 +42,5 @@
 <script type="text/template" id="login">
   <label>Username <input type="text" name="username"></label>
   <label>Password <input type="password" name="password"></label>
-  <input type="button">
+  <a href="{% url login %}" class="login">Login</a><a href="{% url home %}" class="cancel">Cancel</a>
 </script>
