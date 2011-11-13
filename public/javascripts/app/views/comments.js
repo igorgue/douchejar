@@ -52,6 +52,8 @@ $(function() {
             attr('class', "thumbup enabled");
 
           $(commentView.el).find('.thumbdown').attr('class', "thumbdown");
+        }, error: function() {
+          $(".login").click();
         }
       });
 
@@ -72,6 +74,8 @@ $(function() {
             attr('class', "thumbdown enabled");
           
           $(commentView.el).find('.thumbup').attr('class', "thumbup");
+        }, error: function() {
+          $(".login").click();
         }
       });
 
