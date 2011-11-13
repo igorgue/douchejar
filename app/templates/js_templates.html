@@ -1,10 +1,10 @@
 <script type="text/template" id="comment">
   <p>
-    <a href="javascript: void(0);" class="thumbs-up inactive">+</a> 
-    <a href="javascript: void(0);" class="thumbs-down inactive">-</a> 
+    <a href="{% url comment-builder %}/<%= id %>/" class="thumbs-up inactive">+</a> 
+    <a href="{% url comment-builder %}/<%= id %>/" class="thumbs-down inactive">-</a> 
     #<%= id %>: <%= comment %> 
 
-    <a href="javascript: void(0);" class="comment-link">
+    <a href="{% url comment-builder %}/<%= id %>/" class="comment-link">
       <em>
         by 
         <span style="font-size: small"><%= user_name %> <%= timeAgo %></span>
@@ -15,11 +15,11 @@
 
 <script type="text/template" id="comment-big">
   <h1>
-    <a href="javascript: void(0);" class="thumbs-up inactive">+</a> 
-    <a href="javascript: void(0);" class="thumbs-down inactive">-</a> 
+    <a href="{% url comment-builder %}/<%= id %>/" class="thumbs-up inactive">+</a> 
+    <a href="{% url comment-builder %}/<%= id %>/" class="thumbs-down inactive">-</a> 
     #<%= id %>: <%= comment %> 
 
-    <a href="javascript: void(0);" class="comment-link">
+    <a href="{% url comment-builder %}/<%= id %>/" class="comment-link">
       <em>
         by 
         <span style="font-size: large"><%= user_name %> <%= timeAgo %></span>
