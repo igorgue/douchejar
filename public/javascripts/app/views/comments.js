@@ -10,7 +10,11 @@ $(function() {
       'click .comment-link': "openComment"
     },
 
-    initialize: function() {
+    initialize: function(attributes) {
+      if(typeof attributes.template !== 'undefined') {
+        this.template = attributes.template;
+      }
+
       _.bindAll(this, 'render');
 
       this.model.bind('change', 'render');
