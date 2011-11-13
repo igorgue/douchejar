@@ -23,23 +23,29 @@ $(function() {
     render: function() {
       $(this.el).html(this.template(this.model.toJSON()));
 
+      this.renderOrganization();
+
       return this;
     },
 
     renderOrganization: function(){
       var container = this.$("ul").empty();
+      var view = this;
       
-      this.organizationModels.each(function(model){
+      view.organizationModels.each(function(model){
         var data = model.toJSON();
         var hold = parseInt(data.money_accumilated/20) || 1;
 
         container.append(
           $("<li>").append(
-            $("<img>").attr('src', '/static/images/jar_inactive_' + hold + '.png')
+            $("<img>").attr({'src': '/static/images/jar_inactive_' + hold + '.png', title: '$' + data.money_accumilated})
           ).append(
             $("<p>").html(data.name)
           ).click(function(){
-            model.select();
+            $(this).parent().find("li").removeClass("selected");
+            $(this).addClass("selected");
+
+            view.organizationModels.selected = model;
           })
         );
       });
@@ -53,7 +59,7 @@ $(function() {
       function postComment(){
         var model = new Comment({
           comment: view.$("[name=comment]").val(),
-          organization: view.$("[name=organization]").val(),
+          organization: view.organizationModels.selected.id,
           user_name: view.model.get("username")
         });
 
@@ -74,10 +80,14 @@ $(function() {
         });
 
         model.save().success(function(){
+          $('a.logout').show();
+          $('a.login').hide();
+          view.render();
+
           postComment();
         });
       } else 
-        postComment()
+        postComment();
 
       return false;
     },
