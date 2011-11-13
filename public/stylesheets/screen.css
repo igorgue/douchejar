@@ -22,6 +22,25 @@
     color: grey;
 }
 
+#overlay {
+    position:absolute;
+    width:100%;
+    z-index: 1;
+}
+
+#overlay .view {
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    -ms-border-radius: 15px;
+    -o-border-radius: 15px;
+    border-radius: 15px;
+    width: 580px;
+    margin: 100px auto;
+    background: #000;
+    padding: 20px;
+    color: #fff;
+}
+
 body {margin:0; padding:0; background-image: url(/static/images/grey_bkgd.jpeg); font-family:Arial, Helvetica,sans-serif}
 li {list-style:none}
 a {text-decoration:none; color:#fff}
@@ -49,4 +68,4 @@ a {text-decoration:none; color:#fff}
 .dark {color:#333}
 .thumbup {margin:0px; padding:0px; background-image: url(/static/images/thumbsup.jpg)}
 .thumbdown {margin:0px; padding:0px; background-image: url(/static/images/thumbsdown.jpg)}
-.comment-link {color: grey};
+.comment-link { color: #ccc; };

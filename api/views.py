@@ -140,3 +140,25 @@ class User(View):
             return {"id": form.instance.id}
 
         return form.errors.copy(), HttpResponseBadRequest
+
+class Login(View):
+    @unauthorized_user
+    @as_json
+    def post(self, request):
+        """
+        Log user in
+        """
+        data = simplejson.loads(request.read())
+        form = forms.UserLoginForm(data)
+
+        if form.is_valid():
+            if hasattr(form, 'instance') and form.instance:
+                # session user in
+                form.instance.backend = "django.contrib.auth.backends.ModelBackend"
+                login(request, form.instance)
+
+                return model_to_dict(form.instance, exclude=(
+                    "is_superuser","is_staff","last_login","groups","user_permissions","password","date_joined","is_active",
+                ))
+
+        return form.errors.copy(), HttpResponseBadRequest

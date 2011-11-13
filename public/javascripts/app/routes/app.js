@@ -31,3 +31,11 @@ $(function() {
   window.Application = new Application();
   Backbone.history.start({pushState: true});
 });
+
+$(document).ready(function(){
+  $("a.login").click(function(){
+    $("#overlay").append((new LoginView()).render().el)
+    
+    return false;
+  });
+});

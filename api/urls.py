@@ -11,4 +11,5 @@ urlpatterns = patterns('api.views',
     url(r'^organizations/(?P<organization_id>\d+)/?$', Organization.as_view(), name="organization"),
 
     url(r'^user/?$', User.as_view(), name="user"),
+    url(r'^login/?$', Login.as_view(), name="login"),
 )

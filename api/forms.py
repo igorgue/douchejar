@@ -1,8 +1,32 @@
 from django import forms
+from django.contrib.auth import authenticate
 from django.contrib.auth.models import User
 from django.utils.translation import ugettext_lazy as _
 
 from app import models
+
+
+class UserLoginForm(forms.Form):
+    username = forms.CharField()
+    password = forms.CharField()
+
+    def clean(self):
+        cleaned_data = super(UserLoginForm, self).clean()
+        
+        if self.errors:
+            return cleaned_data
+        
+        auth = authenticate(
+            username=cleaned_data['username'],
+            password=cleaned_data['password']
+        )
+        
+        if not auth:
+            raise forms.ValidationError('Username and/or Password are incorrect.')
+        
+        self.instance = auth
+        
+        return cleaned_data
 
 
 class UserForm(forms.ModelForm):
