@@ -14,22 +14,21 @@ $(function() {
     home: function() {
       console.log(location.href);
 
-      $('#content_single_comment').remove();
-      $("#content").show();
+      $('#douchy_comment_single').replaceWith($("<div>").attr("id", "douchy_comments").append(this.commentListView.render().el));
     },
 
     comments: function(id) {
       console.log('/comments/' + id);
 
-      $("#content").hide();
-
       var comment = comments.find(function(comment) { return comment.get('id') === parseInt(id, 10); });
       var bigCommentView = new CommentView({
         template: _.template($("#comment-big").html()),
-        model: comment
+        model: comment,
+        tagName: 'div',
+        id: 'douchy_comment_single'
       });
 
-      $('body').append(bigCommentView.render().el);
+      $('#douchy_comments').replaceWith(bigCommentView.render().el);
     }
   });
 
