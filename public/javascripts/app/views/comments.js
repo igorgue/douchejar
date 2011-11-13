@@ -85,8 +85,7 @@ $(function() {
   });
 
   window.CommentListView = Backbone.View.extend({
-    tagName: "div",
-    className: "comment-list",
+    tagName: "ul",
 
     initialize: function() {
       _.bindAll(this, 'render');
@@ -102,7 +101,7 @@ $(function() {
         $(commentListView.el).append(commentView.render().el);
       });
 
-      $('#douchy_comments li').append(this.el);
+      $('#douchy_comments').append(this.el);
 
       return this;
     }
