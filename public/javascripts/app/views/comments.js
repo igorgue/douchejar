@@ -49,15 +49,9 @@ $(function() {
         success: function() {
           $(commentView.el).
             find('.thumbup').
-            attr('class', "thumbup enabled").
-            click(function() {
-              return false;
-            });
+            attr('class', "thumbup enabled");
 
-          $(commentView.el).find('.thumbup').attr('style', "cursor: default;");
-
-          $(commentView.el).find('.thumbdown').click(function() { return false; });
-          $(commentView.el).find('.thumbdown').attr('style', "cursor: default;").attr('class', "thumbdown");
+          $(commentView.el).find('.thumbdown').attr('class', "thumbdown");
         }
       });
 
@@ -75,15 +69,9 @@ $(function() {
         success: function() {
           $(commentView.el).
             find('.thumbdown').
-            attr('class', "thumbdown enabled").
-            click(function() {
-              return false;
-            });
-
-          $(commentView.el).find('.thumbdown').attr('style', "cursor: default;");
-
-          $(commentView.el).find('.thumbup').click(function() { return false; });
-          $(commentView.el).find('.thumbup').attr('style', "cursor: default;").attr('class', "thumbup");
+            attr('class', "thumbdown enabled");
+          
+          $(commentView.el).find('.thumbup').attr('class', "thumbup");
         }
       });
 
