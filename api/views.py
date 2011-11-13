@@ -42,6 +42,7 @@ class Comments(View):
 
 
 class Comment(View):
+    @authorized_user
     @as_json
     def get(self, request, comment_id):
         """
@@ -53,6 +54,7 @@ class Comment(View):
 
 
 class CommentRating(View):
+    @authorized_user
     @as_json
     def post(self, request, comment_id):
         """
