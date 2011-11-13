@@ -4,6 +4,11 @@ $(function() {
 
     template: _.template($("#comment").html()),
 
+    events: {
+      'click .thumbs-up': "thumbsUp",
+      'click .thumbs-down': "thumbsDown"
+    },
+
     initialize: function() {
       _.bindAll(this, 'render');
 
@@ -18,6 +23,14 @@ $(function() {
       $(this.el).html(this.template(data));
 
       return this;
+    },
+
+    thumbsUp: function() {
+      console.log('thumbs-up for ' + this.model.get('id'));
+    },
+
+    thumbsDown: function() {
+      console.log('thumbs-down for ' + this.model.get('id'));
     }
   });
 
