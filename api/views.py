@@ -1,3 +1,4 @@
+from django.contrib.auth import login
 from django.forms.models import model_to_dict
 from django.shortcuts import get_object_or_404
 from django.views.generic import View
@@ -131,6 +132,11 @@ class User(View):
 
         if form.is_valid():
             form.save()
+
+            # session user in
+            form.instance.backend = "django.contrib.auth.backends.ModelBackend"
+            login(request, form.instance)
+
             return {"id": form.instance.id}
 
         return form.errors.copy(), HttpResponseBadRequest
