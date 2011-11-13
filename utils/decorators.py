@@ -1,9 +1,10 @@
-from django.http import HttpResponse
 from django.utils import simplejson
 from django.utils.decorators import available_attrs
 
 from functools import wraps
 from decimal import Decimal
+
+from utils.http import HttpResponse, HttpResponseUnauthorized
 
 import json
 
@@ -43,6 +44,21 @@ def as_json(view):
                 json.dumps(response_data, cls=JSONEncoder),
                 content_type='application/json;charset=UTF-8'
             )
+        
+        return wraps(view_func, assigned=available_attrs(view_func))(_wrapped_view)
+    
+    return decorator(view)
+
+def authorized_user(view):
+    """
+    Ensure that the user is authenticated
+    """
+    def decorator(view_func):
+        def _wrapped_view(clss, request, *args, **kwargs):
+            if request.user.is_authenticated():
+                return view_func(clss, request, *args, **kwargs)
+            
+            return HttpResponseUnauthorized()
         
         return wraps(view_func, assigned=available_attrs(view_func))(_wrapped_view)
     

@@ -2,12 +2,13 @@ from django.shortcuts import get_object_or_404
 from django.views.generic import View
 from django.utils import simplejson
 
-from utils.decorators import as_json
+from utils.decorators import as_json, authorized_user
 from utils.http import HttpResponseBadRequest, HttpResponseNoContent
 from app import models
 from api import forms
 
 class Comments(View):
+    @authorized_user
     @as_json
     def post(self, request):
         """
