@@ -19,10 +19,9 @@ $(function() {
       var data = this.model.toJSON();
 
       data.timeAgo = this.model.timeAgo();
-
       $(this.el).html(this.template(data));
 
-     return this;
+      return this;
     },
 
     thumbsUp: function() {
