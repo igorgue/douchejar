@@ -34,7 +34,7 @@ $(function() {
       
       view.organizationModels.each(function(model){
         var data = model.toJSON();
-        var hold = parseInt(data.money_accumilated/20) || 1;
+        var hold = parseInt(data.money_accumilated/20, 10) || 1;
 
         container.append(
           $("<li>").append(
@@ -70,7 +70,7 @@ $(function() {
         });
       }
 
-      if(typeof(view.model.get("id")) == "undefined"){
+      if (typeof(view.model.get("id")) == "undefined") {
         var model = this.model.set({
           username: this.$("[name=username]").val(),
           password: this.$("[name=password]").val(),
@@ -86,8 +86,9 @@ $(function() {
 
           postComment();
         });
-      } else 
+      } else {
         postComment();
+      }
 
       return false;
     },

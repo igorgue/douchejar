@@ -35,6 +35,8 @@ $(function() {
         $("#overlay").addClass("hide");
         $('a.logout').show();
         $('a.login').hide();
+
+        comments.fetch();
       });
 
       return false;
