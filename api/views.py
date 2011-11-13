@@ -16,11 +16,11 @@ class Comments(View):
         data = simplejson.loads(request.read())
         data['user'] = request.user.id
 
-        form = forms.Comment(data)
+        form = forms.CommentForm(data)
 
         if form.is_valid():
             form.save()
-            return HttpResponseNoContent
+            return {"id": form.instance.id}
 
         return form.errors.copy(), HttpResponseBadRequest
 
@@ -55,8 +55,34 @@ class CommentRating(View):
         """
         Adds a new rating for the comment (+/-)
         """
-        return {'message': 'hello-put'}
+        data = simplejson.loads(request.read())
+        data['user'] = request.user.id
 
+        form = forms.CommentRatingForm(data)
+
+        if form.is_valid():
+            form.save()
+            return {"id": form.instance.id}
+
+        return form.errors.copy(), HttpResponseBadRequest
+
+    @as_json
+    def put(self, request, comment_id):
+        """
+        Update a new rating for the comment (+/-)
+        """
+        data = simplejson.loads(request.read())
+        data['user'] = request.user.id
+
+        rating = get_object_or_404(models.Rating, id=data.get("id", 0), user__id=data['user'])
+
+        form = forms.CommentRatingForm(data, instance=rating)
+
+        if form.is_valid():
+            form.save()
+            return HttpResponseNoContent
+
+        return form.errors.copy(), HttpResponseBadRequest
 
 class Organizations(View):
     @as_json
