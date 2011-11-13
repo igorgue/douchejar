@@ -13,7 +13,7 @@ $(function() {
     render: function() {
       var data = this.model.toJSON();
 
-      data['timeAgo'] = this.model.timeAgo();
+      data.timeAgo = this.model.timeAgo();
 
       $(this.el).html(this.template(data));
 
