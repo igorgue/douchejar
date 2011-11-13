@@ -1,12 +1,12 @@
 $(function() {
   window.CommentView = Backbone.View.extend({
-    tagName: "div",
+    tagName: "li",
 
     template: _.template($("#comment").html()),
 
     events: {
-      'click .thumbs-up': "thumbsUp",
-      'click .thumbs-down': "thumbsDown",
+      'click .thumbup': "thumbsUp",
+      'click .thumbdown': "thumbsDown",
       'click .comment-link': "openComment"
     },
 
@@ -98,7 +98,7 @@ $(function() {
         $(commentListView.el).append(commentView.render().el);
       });
 
-      $('body').append(this.el);
+      $('#douchy_comments li').append(this.el);
 
       return this;
     }

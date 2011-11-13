@@ -1,16 +1,27 @@
 <script type="text/template" id="comment">
-  <p>
-    <a href="javascript: void(0);" class="thumbs-up inactive">+</a> 
-    <a href="javascript: void(0);" class="thumbs-down inactive">-</a> 
-    #<%= id %>: <%= comment %> 
+  <div class="thumbs_bar">
+    <a href="javascript: void(0);" class="thumbup">&nbsp;</a>
+    <a href="javascript: void(0);" class="thumbdown">&nbsp;</a>
+  </div>
 
-    <a href="javascript: void(0);" class="comment-link">
-      <em>
-        by 
-        <span style="font-size: small"><%= user_name %> <%= timeAgo %></span>
-      </em>
-    </a>
-  </p>
+  <div class="comment_right">
+    <div class="comment_text">
+      <%= comment %>
+    </div>
+
+    <div class="social_box">
+      <a>
+        <img src="{{ STATIC_URL }}images/twitter_icon.png" onmouseover="this.src='{{ STATIC_URL }}/images/twitter_iconhover.png'" onmouseout="this.src='{{ STATIC_URL }}/images/twitter_icon.png'">
+      </a>
+      <a>
+        <img src="{{ STATIC_URL}}images/fb_icon.png" onmouseout="this.src='{{ STATIC_URL }}images/fb_icon.png'" onmouseover="this.src='{{ STATIC_URL }}images/fb_iconhover.png'">
+      </a>
+    </div>
+
+    <div class="comment_meta">
+      <a href="javascript: void(0);" class="comment-link">by <span class="dark"><%= user_name %></span> <%= timeAgo %></a>
+    </div>
+  </div>
 </script>
 
 <script type="text/template" id="comment-big">
