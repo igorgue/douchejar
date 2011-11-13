@@ -18,12 +18,22 @@
     <script src="{{ STATIC_URL }}javascripts/lib/utils.js"></script>
 
     <link type="text/css" rel="stylesheet" href="{{ STATIC_URL }}stylesheets/screen.css">
+    <link type="text/css" rel="stylesheet" href="{{ STATIC_URL }}javascripts/lib/facebox/facebox.css">
+
+    <script type="text/javascript" charset="utf-8">
+      $.facebox.settings.closeImage = "{{ STATIC_URL }}javascripts/lib/facebox/closelabel.png";
+      $.facebox.settings.loadingImage = "{{ STATIC_URL }}javascripts/lib/facebox/loading.gif";
+
+      $(document).ready(function($) {
+        $('a[rel*=facebox]').facebox();
+      });
+    </script>
   </head>
     <div id="wrapper">
       <div id="nav_top">
         <div id="nav_top_center">
           <div id="logo">
-            <a href="javascript: Application.navigate('', true);">
+            <a href="{% url home %}">
               <img src="{{ STATIC_URL }}images/logo.png">
             </a>
           </div>
@@ -66,13 +76,4 @@
     <div id="register" style="display: none;">
     </div>
   </body>
-
-    {% comment %}
-      <p>
-      </p>
-    {% endcomment %}
-  <!--<body>-->
-    <!--<a href="{% url home %}">home</a>-->
-    <!--<h1>{{ comment.comment }} <span style="font-size: small">by {{ comment.user.username }} {{ comment.created_at|timesince }}</span></h1>-->
-  <!--</body>-->
 </html>

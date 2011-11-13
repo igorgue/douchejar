@@ -46,10 +46,12 @@ def comment(request, comment_id):
     """
     Comment page.
     """
+    login_form = AuthenticationForm(None)
     comment = get_object_or_404(Comment, id=comment_id)
 
     data = {
-        'comment': comment
+        'comment': comment,
+        'login_form': login_form
     }
 
     context = RequestContext(request, data)
