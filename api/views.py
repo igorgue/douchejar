@@ -1,9 +1,10 @@
+from django.forms.models import model_to_dict
 from django.shortcuts import get_object_or_404
 from django.views.generic import View
 from django.utils import simplejson
 
-from utils.decorators import as_json, authorized_user
-from utils.http import HttpResponseBadRequest, HttpResponseNoContent
+from utils.decorators import as_json, authorized_user, unauthorized_user
+from utils.http import HttpResponseBadRequest, HttpResponseNoContent, HttpResponseUnauthorized
 from app import models
 from api import forms
 
@@ -108,3 +109,28 @@ class Organization(View):
         organization = get_object_or_404(models.Organization, id=organization_id)
 
         return organization.to_dict()
+
+
+class User(View):
+    @authorized_user
+    @as_json
+    def get(self, request):
+        return model_to_dict(request.user, exclude=(
+            "is_superuser","is_staff","last_login","groups","user_permissions","password","date_joined","is_active",
+        ))
+
+    @unauthorized_user
+    @as_json
+    def post(self, request):
+        """
+        Adds a new user
+        """
+        data = simplejson.loads(request.read())
+
+        form = forms.UserForm(data)
+
+        if form.is_valid():
+            form.save()
+            return {"id": form.instance.id}
+
+        return form.errors.copy(), HttpResponseBadRequest

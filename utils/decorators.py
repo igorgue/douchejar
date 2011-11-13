@@ -63,3 +63,18 @@ def authorized_user(view):
         return wraps(view_func, assigned=available_attrs(view_func))(_wrapped_view)
     
     return decorator(view)
+
+def unauthorized_user(view):
+    """
+    Ensure that the user is NOT authenticated (ONLY USE INSIDE CLASS VIEW)
+    """
+    def decorator(view_func):
+        def _wrapped_view(clss, request, *args, **kwargs):
+            if not request.user.is_authenticated():
+                return view_func(clss, request, *args, **kwargs)
+            
+            return HttpResponseUnauthorized()
+        
+        return wraps(view_func, assigned=available_attrs(view_func))(_wrapped_view)
+    
+    return decorator(view)
