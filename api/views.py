@@ -36,7 +36,7 @@ class Comments(View):
         comments = []
 
         for comment in comment_models:
-            comments.append(comment.to_dict())
+            comments.append(comment.to_dict(request.user))
 
         return comments
 

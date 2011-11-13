@@ -17,6 +17,14 @@ $(function() {
 
       _.bindAll(this, 'render');
 
+      this.ratingModel = new Rating({ comment: this.model.get('id') });
+
+      if(this.model.get("rating_thumbs_up") != null)
+        this.ratingModel.set({
+          id: this.model.get("rating"),
+          "thumbs_up": this.model.get("rating_thumbs_up")? "+": "-"
+        });
+      
       this.model.bind('change', 'render');
     },
 
@@ -32,12 +40,9 @@ $(function() {
     thumbsUp: function() {
       console.log('thumbs-up for ' + this.model.get('id'));
 
-      var rating = new Rating({
-        comment: this.model.get('id'),
-        thumbs_up: "+"
-      });
+      this.ratingModel.set({ thumbs_up: "+" });
 
-      rating.save({}, {
+      this.ratingModel.save({}, {
         success: function() {
           $(commentView.el).
             find('.thumbs-down').
@@ -56,12 +61,9 @@ $(function() {
 
       var commentView = this;
 
-      var rating = new Rating({
-        comment: this.model.get('id'),
-        thumbs_up: "-"
-      });
+      this.ratingModel.set({ thumbs_up: "-" });
 
-      rating.save({}, {
+      this.ratingModel.save({}, {
         success: function() {
           $(commentView.el).
             find('.thumbs-up').
