@@ -31,11 +31,13 @@ $(function() {
     login: function(){
       var view = this;
 
+      view.$(".error").remove();
+
       var model = view.model.set({
         username: this.$("[name=username]").val(),
         password: this.$("[name=password]").val()
       });
-      
+
       model.save().success(function(){
         view.remove();
         $("#overlay").addClass("hide");
@@ -43,6 +45,12 @@ $(function() {
         $('a.login').hide();
 
         comments.fetch();
+      }).error(function(request){
+        var data = jQuery.parseJSON(request.responseText);
+
+        for(key in data)
+          view.$("[name=" + key + "]").before($("<span>").addClass("error").html(data[key].join(", ")));
+
       });
 
       return false;

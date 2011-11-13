@@ -63,6 +63,8 @@ $(function() {
     register: function(){
       var view = this;
 
+      view.$(".error").remove();
+
       function postComment(){
         var model = new Comment({
           comment: view.$("[name=comment]").val(),
@@ -74,6 +76,12 @@ $(function() {
           comments.add(model);
           view.remove();
           $("#overlay").addClass("hide");
+        }).error(function(request){
+          var data = jQuery.parseJSON(request.responseText);
+
+          for(key in data)
+            view.$("[name=" + key + "]").before($("<span>").addClass("error").html(data[key].join(", ")));
+
         });
       }
 
@@ -92,6 +100,12 @@ $(function() {
           view.render();
 
           postComment();
+        }).error(function(request){
+          var data = jQuery.parseJSON(request.responseText);
+
+          for(key in data)
+            view.$("[name=" + key + "]").before($("<span>").addClass("error").html(data[key].join(", ")));
+
         });
       } else {
         postComment();

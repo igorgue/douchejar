@@ -28,6 +28,7 @@
 
 .button-small {float:right; background-image: url(/static/images/bottom_button_bkgd.jpg); background-repeat: repeat-x; padding:10; margin: 5px 0 0px 5px; border-radius:5px; box-shadow:0px 0px 8px #000000; overflow:auto; text-align:center; color:#fff; font-weight:bold; text-shadow:0px 2px 1px #000}
 
+#overlay .view.container span.error { display:block; color:red; font-weight:bold; }
 #overlay .view.container .separator {background-image: url(/static/images/form_bkgd.jpg); margin-top:20px; padding:10px; border-radius:5px; box-shadow:0px 0px 8px #000000;}
 #overlay .view.container .separator.top {margin-top:0;}
 #overlay .view.container #form_left {float:left; padding:15px; border-right: 1px solid #fff; width:35%;}
