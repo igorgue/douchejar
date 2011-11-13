@@ -1,27 +1,3 @@
-.thumbs-up.inactive {
-    color: blue;
-}
-
-.thumbs-up.active {
-    color: green;
-}
-
-.thumbs-up.disabled {
-    color: grey;
-}
-
-.thumbs-down.inactive {
-    color: blue;
-}
-
-.thumbs-down.active {
-    color: green;
-}
-
-.thumbs-down.disabled {
-    color: grey;
-}
-
 #overlay {
     position:absolute;
     width:100%;

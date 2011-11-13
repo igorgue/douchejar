@@ -1,7 +1,15 @@
 <script type="text/template" id="comment">
   <div class="thumbs_bar">
-    <a href="{% url app:comment-builder %}/<%= id %>/" class="thumbup">&nbsp;</a>
-    <a href="{% url app:comment-builder %}/<%= id %>/" class="thumbdown">&nbsp;</a>
+    <% if(rating_thumbs_up === null) { %>
+      <a href="{% url app:comment-builder %}/<%= id %>/" class="thumbup">&nbsp;</a>
+      <a href="{% url app:comment-builder %}/<%= id %>/" class="thumbdown">&nbsp;</a>
+    <% } else if(rating_thumbs_up === true) { %>
+      <a href="{% url app:comment-builder %}/<%= id %>/" class="thumbup">&nbsp;</a>
+      <a href="{% url app:comment-builder %}/<%= id %>/" class="thumbdown disabled">&nbsp;</a>
+    <% } else { %>
+      <a href="{% url app:comment-builder %}/<%= id %>/" class="thumbup disabled">&nbsp;</a>
+      <a href="{% url app:comment-builder %}/<%= id %>/" class="thumbdown">&nbsp;</a>
+    <% } %>
   </div>
 
   <div class="comment_right">
