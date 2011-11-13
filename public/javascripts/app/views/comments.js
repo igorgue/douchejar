@@ -79,7 +79,7 @@ $(function() {
       var href = $(event.currentTarget).attr("href");
 
       Application.navigate(href.substr(1, href.length), true);
-      
+
       return false;
     }
   });
