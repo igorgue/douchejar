@@ -65,13 +65,24 @@ class Comment(models.Model):
 
         return 0
 
-    def to_dict(self):
+    def to_dict(self, user=None):
         model = model_to_dict(self, exclude=['price'])
 
         model['user_name'] = self.user.username
         model['organization_name'] = self.organization.name
         model['created_at'] = self.created_at
-        model['rating'] = self.rating
+        model['total_rating'] = self.rating
+        model['rating'] = None
+        model['rating_thumbs_up'] = None
+
+        if user and user.is_authenticated():
+            try:
+                data = self.rating_set.filter(user=user).values("id", "thumbs_up")[0]
+
+                model['rating'] = data['id']
+                model['rating_thumbs_up'] = data['thumbs_up']
+            except IndexError:
+                pass
 
         return model
 
