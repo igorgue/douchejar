@@ -25,6 +25,7 @@
     <script src="{{ STATIC_URL }}javascripts/app/models/rating.js"></script>
 
     <script src="{{ STATIC_URL }}javascripts/app/views/comments.js"></script>
+    <script src="{{ STATIC_URL }}javascripts/app/views/registration.js"></script>
     <script src="{{ STATIC_URL }}javascripts/app/views/login.js"></script>
 
     <script src="{{ STATIC_URL }}javascripts/app/routes/app.js"></script>
@@ -62,7 +63,7 @@
             Popular
             </li>
           </ul>
-          <p id="jar"><a rel="facebox" href="#register">Put $1 in the jar</a></p>
+          <p id="jar"><a href="{% url app:register %}" class="register">Put $1 in the jar</a></p>
         </div>
         {% block content %}{% endblock %}
       </div>

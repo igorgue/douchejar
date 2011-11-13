@@ -37,3 +37,15 @@
   <label>Password <input type="password" name="password"></label>
   <a href="{% url app:login %}" class="login">Login</a><a href="{% url app:home %}" class="cancel">Cancel</a>
 </script>
+
+<script type="text/template" id="register">
+  <textarea name="comment"></textarea>
+  <input type="text" name="first_name" value="<%= first_name %>">
+  <input type="text" name="last_name" value="<%= last_name %>">
+  <% if(typeof(id) == "undefined"){ %>
+  <input type="text" name="email" value="<%= email %>">
+  <input type="text" name="username" value="<%= username %>">
+  <input type="text" name="password">
+  <% } %>
+  <a href="{% url app:register %}" class="register">register</a><a href="{% url app:home %}" class="cancel">Cancel</a>
+</script>

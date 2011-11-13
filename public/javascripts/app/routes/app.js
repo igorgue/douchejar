@@ -3,6 +3,7 @@ $(function() {
     initialize: function() {
       this.commentListView = new CommentListView();
       comments.fetch();
+      User.fetch();
     },
 
     routes: {
@@ -42,6 +43,13 @@ $(document).ready(function(){
 
     return false;
   });
+
+  $("a.register").click(function(){
+    $("#overlay").append((new RegistrationView()).render().el);
+
+    return false;
+  });
+
   $("#logo > a").click(function(){
     Application.navigate('', true);
 

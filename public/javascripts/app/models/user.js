@@ -3,7 +3,8 @@ $(function() {
     defaults: {
       first_name: "",
       last_name: "",
-      username: ""
+      username: "",
+      email: ""
     },
 
     url: "/api/user/"
