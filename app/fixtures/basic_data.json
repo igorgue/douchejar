@@ -3,7 +3,7 @@
         "pk": 5, 
         "model": "app.comment", 
         "fields": {
-            "comment": "asdf asdf asdfasd", 
+            "comment": "I wish being an asshole came easier to me", 
             "organization": 1, 
             "price": "1", 
             "user": 1, 
@@ -14,7 +14,7 @@
         "pk": 4, 
         "model": "app.comment", 
         "fields": {
-            "comment": "asdf sadf sadf sadf sadf", 
+            "comment": "Girlfriend: I still want you, Douchebag: Of course you do, I'm fucking perfect.", 
             "organization": 2, 
             "price": "1", 
             "user": 1, 
@@ -25,7 +25,7 @@
         "pk": 3, 
         "model": "app.comment", 
         "fields": {
-            "comment": "sdhjfsdjkfhsf sdfhs dfjhkasfas", 
+            "comment": "No matter how hard you try you'd never be as cool as my hair", 
             "organization": 5, 
             "price": "1", 
             "user": 1, 
