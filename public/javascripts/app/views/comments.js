@@ -72,7 +72,7 @@ $(function() {
     },
 
     openComment: function() {
-      Application.navigate("comments/" + this.model.get('id'));
+      Application.navigate("comments/" + this.model.get('id'), true);
     }
   });
 

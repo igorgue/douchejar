@@ -14,7 +14,7 @@ $(function() {
     },
 
     comments: function(id) {
-      alert('/comments/' + id);
+      console.log('/comments/' + id);
     }
   });
 
