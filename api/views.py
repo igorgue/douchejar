@@ -13,7 +13,7 @@ class Comments(View):
         """
         Adds new comment
         """
-        data = requet.POST.copy()
+        data = request.POST.copy()
         data['user'] = request.user.id
 
         form = forms.Comment(data)
