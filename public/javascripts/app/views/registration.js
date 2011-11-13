@@ -25,16 +25,33 @@ $(function() {
     register: function(){
       var view = this;
 
-      var model = new Comment({
-        comment: this.$("[name=comment]").val(),
-        organization: this.$("[name=organization]").val(),
-        user_name: this.model.get("username")
-      });
+      function postComment(){
+        var model = new Comment({
+          comment: view.$("[name=comment]").val(),
+          organization: view.$("[name=organization]").val(),
+          user_name: view.model.get("username")
+        });
 
-      model.save().success(function(){
-        comments.add(model);
-        view.remove();
-      });
+        model.save().success(function(){
+          comments.add(model);
+          view.remove();
+        });
+      }
+
+      if(typeof(view.model.get("id")) == "undefined"){
+        var model = this.model.set({
+          username: this.$("[name=username]").val(),
+          password: this.$("[name=password]").val(),
+          first_name: this.$("[name=first_name]").val(),
+          last_name: this.$("[name=last_name]").val(),
+          email: this.$("[name=email]").val()
+        });
+
+        model.save().success(function(){
+          postComment();
+        });
+      } else 
+        postComment()
 
       return false;
     },
