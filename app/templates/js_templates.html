@@ -39,14 +39,50 @@
 </script>
 
 <script type="text/template" id="register">
-  <textarea name="comment"></textarea>
-  <input type="text" name="organization" value="">
-  <input type="text" name="first_name" value="<%= first_name %>">
-  <input type="text" name="last_name" value="<%= last_name %>">
-  <% if(typeof(id) == "undefined"){ %>
-  <input type="text" name="email" value="<%= email %>">
-  <input type="text" name="username" value="<%= username %>">
-  <input type="text" name="password">
-  <% } %>
-  <a href="{% url app:register %}" class="register">register</a><a href="{% url app:home %}" class="cancel">Cancel</a>
+  <div class="separator top">
+      <input type="text" name="comment" id="comment_textbox" placeholder="Douchy comment here">
+  </div>
+  <div class="separator">
+    <div id="form_left">
+      <input type="text" name="first_name" class="field_box" placeholder="First Name" value="<%= first_name %>">
+      <input type="text" name="last_name" class="field_box" placeholder="Last Name" value="<%= last_name %>">
+      <% if(typeof(id) == "undefined"){ %>
+      <input type="text" name="email" class="field_box" placeholder="Email">
+      <input type="text" name="username" class="field_box" placeholder="Username">
+      <input type="text" name="password" class="field_box" placeholder="Password">
+      <% } %>
+    </div>
+    <div id="form_right">
+      <input type="text" name="card_name" class="field_box_long" placeholder="Name on card">
+      <input type="text" name="card_number" class="field_box_long" placeholder="Card Number">
+      <input type="text" name="card_month" class="field_box_short" placeholder="Month">
+      <input type="text" name="card_year" class="field_box_short" placeholder="Year">
+      <input type="text" name="card_cvc" class="field_box_short" placeholder="CSV">
+      <img src="{{ STATIC_URL }}/images/douche_diagram.png">
+    </div>
+    <div id="donate_to">
+      <div id="title_bar">
+        <span>Donate to:</span>
+        <div id="search_box"><input type="text" name="search" id="search_box_short" placeholder="Search "></div>
+      </div>
+      <ul>
+        <li><img src="{{ STATIC_URL }}/images/jar_inactive_4.png" alt="" /><p>Saint Joseph Hospital</p></li>
+        <li><img src="{{ STATIC_URL }}/images/jar_inactive_3.png" alt="" /><p>Saint Joseph Hospital</p></li>
+        <li><img src="{{ STATIC_URL }}/images/jar_inactive_2.png" alt="" /><p>Saint Joseph Hospital</p></li>
+        <li><img src="{{ STATIC_URL }}/images/jar_inactive_4.png" alt="" /><p>Saint Joseph Hospital</p></li>
+        <li><img src="{{ STATIC_URL }}/images/jar_inactive_4.png" alt="" /><p>Saint Joseph Hospital</p></li>
+        <li><img src="{{ STATIC_URL }}/images/jar_inactive_4.png" alt="" /><p>Saint Joseph Hospital</p></li>
+        <li><img src="{{ STATIC_URL }}/images/jar_inactive_4.png" alt="" /><p>Saint Joseph Hospital</p></li>
+        <li><img src="{{ STATIC_URL }}/images/jar_inactive_4.png" alt="" /><p>Saint Joseph Hospital</p></li>
+        <li><img src="{{ STATIC_URL }}/images/jar_inactive_4.png" alt="" /><p>Saint Joseph Hospital</p></li>
+        <li><img src="{{ STATIC_URL }}/images/jar_inactive_4.png" alt="" /><p>Saint Joseph Hospital</p></li>
+        <li><img src="{{ STATIC_URL }}/images/jar_inactive_4.png" alt="" /><p>Saint Joseph Hospital</p></li>
+        <li><img src="{{ STATIC_URL }}/images/jar_inactive_4.png" alt="" /><p>Saint Joseph Hospital</p></li>
+      </ul>
+    </div>
+  </div>
+  <div class="button-container">
+    <a href="{% url app:register %}" class="register button">Post It!</a>
+    <a href="{% url app:home %}" class="cancel button">Cancel</a>
+  </div>
 </script>

@@ -1,7 +1,7 @@
 $(function() {
 
   window.RegistrationView = Backbone.View.extend({
-    className: 'view',
+    className: 'view container',
     template: _.template($("#register").html()),
 
     events: {
@@ -10,7 +10,11 @@ $(function() {
     },
 
     initialize: function() {
-      _.bindAll(this, 'render');
+      _.bindAll(this, 'render', 'renderOrganization');
+
+      this.organizationModels = new Organizations();
+      this.organizationModels.bind('reset', this.renderOrganization);
+      this.organizationModels.fetch();
 
       this.model = User;
       this.model.bind('reset', 'render');
@@ -19,6 +23,27 @@ $(function() {
     render: function() {
       $(this.el).html(this.template(this.model.toJSON()));
 
+      return this;
+    },
+
+    renderOrganization: function(){
+      var container = this.$("ul").empty();
+      
+      this.organizationModels.each(function(model){
+        var data = model.toJSON();
+        var hold = parseInt(data.money_accumilated/20) || 1;
+
+        container.append(
+          $("<li>").append(
+            $("<img>").attr('src', '/static/images/jar_inactive_' + hold + '.png')
+          ).append(
+            $("<p>").html(data.name)
+          ).click(function(){
+            model.select();
+          })
+        );
+      });
+      
       return this;
     },
 
