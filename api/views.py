@@ -39,11 +39,11 @@ class Comment(View):
 
 class CommentRating(View):
     @as_json
-    def put(self, request, comment_id):
+    def post(self, request, comment_id):
         """
         Adds a new rating for the comment (+/-)
         """
-        return {'message': 'hello-put'}
+        return {'message': 'hello-post'}
 
 
 class Organizations(View):
