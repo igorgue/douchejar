@@ -15,6 +15,14 @@ $(function() {
 
     comments: function(id) {
       console.log('/comments/' + id);
+
+      var comment = comments.find(function(comment) { return comment.get('id') == id; });
+      var bigCommentView = new CommentView({
+        template: _.template($("#comment-big").html()),
+        model: comment
+      });
+
+      $('body').append(bigCommentView.render().el);
     }
   });
 

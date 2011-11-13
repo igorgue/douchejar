@@ -12,3 +12,18 @@
     </a>
   </p>
 </script>
+
+<script type="text/template" id="comment-big">
+  <h1>
+    <a href="javascript: void(0);" class="thumbs-up inactive">+</a> 
+    <a href="javascript: void(0);" class="thumbs-down inactive">-</a> 
+    #<%= id %>: <%= comment %> 
+
+    <a href="javascript: void(0);" class="comment-link">
+      <em>
+        by 
+        <span style="font-size: large"><%= user_name %> <%= timeAgo %></span>
+      </em>
+    </a>
+  </h1>
+</script>
