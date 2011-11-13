@@ -48,8 +48,7 @@ $(function() {
       this.ratingModel.save({}, {
         success: function() {
           $(commentView.el).
-            find('.thumbdown').
-            attr('class', "thumbdown disabled").
+            attr('class', "thumbup enabled").
             click(function() {
               return false;
             });
@@ -73,8 +72,7 @@ $(function() {
       this.ratingModel.save({}, {
         success: function() {
           $(commentView.el).
-            find('.thumbup').
-            attr('class', "thumbup disabled").
+            attr('class', "thumbdown enabled").
             click(function() {
               return false;
             });

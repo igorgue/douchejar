@@ -4,11 +4,11 @@
       <a href="{% url app:comment-builder %}/<%= id %>/" class="thumbup">&nbsp;</a>
       <a href="{% url app:comment-builder %}/<%= id %>/" class="thumbdown">&nbsp;</a>
     <% } else if(rating_thumbs_up === true) { %>
-      <a href="{% url app:comment-builder %}/<%= id %>/" class="thumbup">&nbsp;</a>
-      <a href="{% url app:comment-builder %}/<%= id %>/" class="thumbdown disabled">&nbsp;</a>
-    <% } else { %>
-      <a href="{% url app:comment-builder %}/<%= id %>/" class="thumbup disabled">&nbsp;</a>
+      <a href="{% url app:comment-builder %}/<%= id %>/" class="thumbup enabled">&nbsp;</a>
       <a href="{% url app:comment-builder %}/<%= id %>/" class="thumbdown">&nbsp;</a>
+    <% } else { %>
+      <a href="{% url app:comment-builder %}/<%= id %>/" class="thumbup">&nbsp;</a>
+      <a href="{% url app:comment-builder %}/<%= id %>/" class="thumbdown enabled">&nbsp;</a>
     <% } %>
   </div>
 

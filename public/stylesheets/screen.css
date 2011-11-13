@@ -75,8 +75,10 @@ a {text-decoration:none; color:#fff}
 .dark {color:#333}
 .thumbup {margin:0px; padding:0px; background-image: url(/static/images/thumbsup.jpg)}
 .thumbup.disabled {margin:0px; padding:0px; background-image: url(/static/images/thumbsup_disabled.jpg)}
+.thumbup.enabled {margin:0px; padding:0px; background-image: url(/static/images/thumbsup_enabled.jpg)}
 .thumbdown {margin:0px; padding:0px; background-image: url(/static/images/thumbsdown.jpg)}
 .thumbdown.disabled {margin:0px; padding:0px; background-image: url(/static/images/thumbsdown_disabled.jpg)}
+.thumbdown.enabled {margin:0px; padding:0px; background-image: url(/static/images/thumbsdown_enabled.jpg)}
 .comment-link { color: #ccc; }
 
 #douchy_comment_single {
