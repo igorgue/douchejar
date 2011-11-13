@@ -29,8 +29,8 @@ $(function() {
       console.log('thumbs-up for ' + this.model.get('id'));
 
       var rating = new Rating({
-        comment: this.get('id'),
-        thumbs_up: true
+        comment: this.model.get('id'),
+        thumbs_up: "+"
       });
 
       rating.save();
@@ -40,8 +40,8 @@ $(function() {
       console.log('thumbs-down for ' + this.model.get('id'));
 
       var rating = new Rating({
-        comment: this.get('id'),
-        thumbs_up: false
+        comment: this.model.get('id'),
+        thumbs_up: "-"
       });
 
       rating.save();

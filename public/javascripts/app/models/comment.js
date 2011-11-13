@@ -15,7 +15,7 @@ $(function() {
 
   window.Comments = Backbone.Collection.extend({
     model: Comment,
-    url: "/api/comments"
+    url: "/api/comments/"
   });
 
   window.comments = new Comments();
