@@ -15,6 +15,7 @@ $(function() {
       this.organizationModels = new Organizations();
       this.organizationModels.bind('reset', this.renderOrganization);
       this.organizationModels.fetch();
+      this.organizationModels.selected = {id: null};
 
       this.model = User;
       this.model.bind('reset', 'render');

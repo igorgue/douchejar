@@ -8,10 +8,7 @@ $(function() {
 
   window.Organizations = Backbone.Collection.extend({
     model: Organization,
-    url: "/api/organizations",
-
-    selected: null
-
+    url: "/api/organizations"
   });
 
 });
