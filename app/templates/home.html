@@ -41,10 +41,26 @@
   </head>
 
   <body>
-    <a href="#info" rel="facebox">link</a>
-    <a href="javascript: Application.navigate('', true);">/</a>
-    <a href="javascript: Application.navigate('comments/1', true);">comments/1</a>
+    <p>
+    {% if user.is_authenticated %}
+      Hello, {{ user.first_name|default:user.username }}
+      {# <a href="{% url logout %}">logout</a> #}
+    {% else %}
+      <a href="#register" rel="facebox">register</a>
+      <a href="#login" rel="facebox">login</a>
+    {% endif %}
+    </p>
 
-    <div id="info" style="display:none;">test</div>
+    <div id="register" style="display: none;">
+    </div>
+
+    <div id="login" style="display: none;">
+      <form action="{% url home %}" method="post" accept-charset="utf-8">
+        <table border="0">
+          {{ login_form.as_table }}
+        </table>
+        <p><input type="submit" value="Login" /></p>
+      </form>
+    </div>
   </body>
 </html>
