@@ -1,16 +1,28 @@
 from django.shortcuts import get_object_or_404
 from django.views.generic import View
+from django.utils import simplejson
 
 from utils.decorators import as_json
+from utils.http import HttpResponseBadRequest, HttpResponseNoContent
 from app import models
+from api import forms
 
 class Comments(View):
     @as_json
-    def put(self, request):
+    def post(self, request):
         """
         Adds new comment
         """
-        return {'message': 'put'}
+        data = requet.POST.copy()
+        data['user'] = request.user.id
+
+        form = forms.Comment(data)
+
+        if form.is_valid():
+            form.save()
+            return HttpResponseNoContent
+
+        return form.errors.copy(), HttpResponseBadRequest
 
     @as_json
     def get(self, request):
@@ -39,7 +51,7 @@ class Comment(View):
 
 class CommentRating(View):
     @as_json
-    def put(self, request, comment_id):
+    def post(self, request, comment_id):
         """
         Adds a new rating for the comment (+/-)
         """

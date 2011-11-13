@@ -25,8 +25,22 @@ def as_json(view):
     """
     def decorator(view_func):
         def _wrapped_view(request, *args, **kwargs):
-            return HttpResponse(
-                json.dumps(view_func(request, *args, **kwargs), cls=JSONEncoder),
+            response_raw = view_func(request, *args, **kwargs)
+
+            if isinstance(response_raw, tuple):
+                response_data, response = response_raw
+            else:
+                response_data = response_raw
+                response = None
+
+            if not response:
+                response = HttpResponse
+
+            if hasattr(response_data, "status_code"):
+                return response_data()
+
+            return response(
+                json.dumps(response_data, cls=JSONEncoder),
                 content_type='application/json;charset=UTF-8'
             )
         
