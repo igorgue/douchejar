@@ -21,3 +21,32 @@
 .thumbs-down.disabled {
     color: grey;
 }
+
+body {margin:0; padding:0; background-image: url(/static/images/grey_bkgd.jpeg); font-family:Arial, Helvetica,sans-serif}
+li {list-style:none}
+a {text-decoration:none; color:#fff}
+#nav_top {width:100%; height:80px; background-color:#000; padding-top:10px; border-bottom:1px solid #fff }
+#logo {float:left}
+#nav_top_center {margin-left:auto; margin-right:auto; width: 860px; color:#fff; overflow: visible}
+#content {margin-left:auto; margin-right:auto; width: 860px; border-radius:5px; box-shadow:0px 0px 3px #333; top:0px; position:relative; background-color:#fff; margin-top:30px; margin-bottom:40px; overflow: hidden;}
+#content_header {width:100%; height:45px; background-color:#e8e8e8; border-radius:5px 5px 0px 0px; border-bottom:1px solid #dfdddd; margin:0px; padding:0px}
+#content_header ul li {display:inline; padding-right:25px; padding-left:25px; padding-top:14px; padding-bottom:13px; border-right:1px solid #fff; border-left:1px solid #ccc; font-weight:bold; letter-spacing:-1px; color:#3c3c3c; text-shadow:1px 1px 1px #fff}
+#content_header ul {padding:0px; float:left; margin:13px 0px}
+#slogan {float:right; padding-top:30px; text-shadow:0px 0px 2px #000}
+#jar {margin:0px; line-height:50px; padding-left:16px; padding-right:16px; border-radius:0px 5px 0px 0px; background-color:#bc0000; background-image:url(/static/images/putdollar_bkgd.jpg); background-repeat: repeat-x; float:right; height:100%; color:#fff; font-size:15px; text-shadow:0px 1px 2px #530000}
+#douchy_comments {}
+#douchy_comments ul {margin:0px; padding:0px !important}
+#douchy_comments ul li {overflow: hidden; clear:both; border-bottom: 1px solid #eee}
+#wrapper {overflow:hidden}
+.thumbs_bar { background-image: url(/static/images/thumbsbar_bkgd.jpg); width:25px; height:100%; float:left; position:absolute}
+.thumbs_bar a {width:25px; height:25px; display:block}
+.social_box {float:right; padding-left:60px}
+.comment_right {float:right; padding:10px 10px 8px 0px}
+.comment_text {float:left; width:700px; font-size:14px; color:#666666; text-shadow: 0px 1px 1px #fff; padding-top:20px}
+.comment_meta {clear:both; text-align:right; font-size:10px; color:#a5a5a5; padding-top:20px}
+.right {float:right};
+.left {float:left}
+.dark {color:#333}
+.thumbup {margin:0px; padding:0px; background-image: url(/static/images/thumbsup.jpg)}
+.thumbdown {margin:0px; padding:0px; background-image: url(/static/images/thumbsdown.jpg)}
+.comment-link {color: grey};
