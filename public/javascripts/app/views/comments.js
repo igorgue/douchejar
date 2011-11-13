@@ -19,11 +19,12 @@ $(function() {
 
       this.ratingModel = new Rating({ comment: this.model.get('id') });
 
-      if(this.model.get("rating_thumbs_up") != null)
+      if(this.model.get("rating_thumbs_up") !== null) {
         this.ratingModel.set({
           id: this.model.get("rating"),
-          "thumbs_up": this.model.get("rating_thumbs_up")? "+": "-"
+          thumbs_up: this.model.get("rating_thumbs_up")? "+": "-"
         });
+      }
       
       this.model.bind('change', 'render');
     },
