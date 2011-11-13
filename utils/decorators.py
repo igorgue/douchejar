@@ -51,7 +51,7 @@ def as_json(view):
 
 def authorized_user(view):
     """
-    Ensure that the user is authenticated
+    Ensure that the user is authenticated (ONLY USE INSIDE CLASS VIEW)
     """
     def decorator(view_func):
         def _wrapped_view(clss, request, *args, **kwargs):
