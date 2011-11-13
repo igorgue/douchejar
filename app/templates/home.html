@@ -51,7 +51,12 @@
             </a>
           </div>
           <div id="slogan">
-            your foul mouth at work
+            your foul mouth at work |
+            {% if user.is_authenticated %}
+              <a href="{% url logout %}">logout</a>
+            {% else %}
+              <a href="#register" rel="facebox">register</a> or <a href="#login" rel="facebox">login</a>
+            {% endif %}
           </div>
         </div>
       </div>
@@ -79,18 +84,6 @@
     <div id="register" style="display: none;">
     </div>
 
-    {% comment %}
-    <p>
-    {% if user.is_authenticated %}
-      Hello, {{ user.first_name|default:user.username }} | <a href="{% url logout %}">logout</a>
-    {% else %}
-      <a href="#register" rel="facebox">register</a> | <a href="#login" rel="facebox">login</a>
-    {% endif %}
-    </p>
-
-    <div id="register" style="display: none;">
-    </div>
-
     <div id="login" style="display: none;">
       <form action="{% url home %}" method="post" accept-charset="utf-8">
         <table border="0">
@@ -99,6 +92,13 @@
         <p><input type="submit" value="Login" /></p>
       </form>
     </div>
-  {% endcomment %}
+
+    <div id="register" style="display: none;">
+    </div>
+
+    {% comment %}
+      <p>
+      </p>
+    {% endcomment %}
   </body>
 </html>
