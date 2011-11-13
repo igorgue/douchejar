@@ -4,19 +4,13 @@ $(function() {
       name: ""
     },
 
-    selected: false
-
   });
 
   window.Organizations = Backbone.Collection.extend({
     model: Organization,
     url: "/api/organizations",
 
-    selected: function(){
-      return $(this.models()).filter(function(index, model){
-        return model.get("selected");
-      });
-    }
+    selected: null
 
   });
 
