@@ -46,9 +46,11 @@
           <div id="slogan">
             your foul mouth at work |
             {% if user.is_authenticated %}
-              <a href="{% url app:logout %}">logout</a>
+              <a href="{% url app:login %}" class="login" style="display: none;">login</a>
+              <a href="{% url app:logout %}" class="logout">logout</a>
             {% else %}
-              <a href="{% url app:login %}"class="login">login</a>
+              <a href="{% url app:login %}" class="login">login</a>
+              <a href="{% url app:logout %}" class="logout" style="display: none;">logout</a>
             {% endif %}
           </div>
         </div>

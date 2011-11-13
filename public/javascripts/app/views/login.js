@@ -33,6 +33,8 @@ $(function() {
       model.save().success(function(){
         view.remove();
         $("#overlay").addClass("hide");
+        $('a.logout').show();
+        $('a.login').hide();
       });
 
       return false;
