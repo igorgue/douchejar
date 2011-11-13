@@ -4,6 +4,12 @@ $(function() {
 
     template: _.template($("#comment").html()),
 
+    events: {
+      'click .thumbs-up': "thumbsUp",
+      'click .thumbs-down': "thumbsDown",
+      'click .comment-link': "openComment"
+    },
+
     initialize: function() {
       _.bindAll(this, 'render');
 
@@ -13,11 +19,60 @@ $(function() {
     render: function() {
       var data = this.model.toJSON();
 
-      data['timeAgo'] = this.model.timeAgo();
-
+      data.timeAgo = this.model.timeAgo();
       $(this.el).html(this.template(data));
 
       return this;
+    },
+
+    thumbsUp: function() {
+      console.log('thumbs-up for ' + this.model.get('id'));
+
+      var rating = new Rating({
+        comment: this.model.get('id'),
+        thumbs_up: "+"
+      });
+
+      rating.save({}, {
+        success: function() {
+          $(commentView.el).
+            find('.thumbs-down').
+            attr('class', "thumbs-down disabled").
+            click(function() {
+              return false;
+            });
+        }
+      });
+
+      return false;
+    },
+
+    thumbsDown: function() {
+      console.log('thumbs-down for ' + this.model.get('id'));
+
+      var commentView = this;
+
+      var rating = new Rating({
+        comment: this.model.get('id'),
+        thumbs_up: "-"
+      });
+
+      rating.save({}, {
+        success: function() {
+          $(commentView.el).
+            find('.thumbs-up').
+            attr('class', "thumbs-up disabled").
+            click(function() {
+              return false;
+            });
+        }
+      });
+
+      return false;
+    },
+
+    openComment: function() {
+      Application.navigate("comments/" + this.model.get('id'), true);
     }
   });
 

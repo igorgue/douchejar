@@ -2,22 +2,22 @@ $(function() {
   var Application = Backbone.Router.extend({
     initialize: function() {
       this.commentListView = new CommentListView();
+      comments.fetch();
     },
 
     routes: {
       '': "home",
-      '/comment/:id': "comment"
+      'comments/:id': "comments"
     },
 
     home: function() {
-      comments.fetch();
     },
 
-    comment: function(id) {
-      console.log('/comment/' + id);
+    comments: function(id) {
+      console.log('/comments/' + id);
     }
   });
 
   window.Application = new Application();
-  Backbone.history.start();
+  Backbone.history.start({pushState: true});
 });

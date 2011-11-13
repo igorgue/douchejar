@@ -55,7 +55,7 @@ class CommentRating(View):
         """
         Adds a new rating for the comment (+/-)
         """
-        return {'message': 'hello-put'}
+        return {'message': 'hello-post'}
 
 
 class Organizations(View):
