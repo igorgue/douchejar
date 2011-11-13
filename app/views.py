@@ -3,8 +3,10 @@ from django.contrib import messages
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.forms import AuthenticationForm
 from django.http import HttpResponse, HttpResponseRedirect
-from django.shortcuts import render_to_response
+from django.shortcuts import render_to_response, get_object_or_404
 from django.template import RequestContext
+
+from app.models import Comment
 
 def home(request):
     """Home page, just render the main template"""
@@ -40,7 +42,15 @@ def home(request):
     context = RequestContext(request, data)
     return render_to_response("home.html", context)
 
-# Push state stuff
 def comment(request, comment_id):
-    # TODO Fix this actually render the comment.
-    return HttpResponseRedirect(reverse("home"))
+    """
+    Comment page.
+    """
+    comment = get_object_or_404(Comment, id=comment_id)
+
+    data = {
+        'comment': comment
+    }
+
+    context = RequestContext(request, data)
+    return render_to_response("comment.html", context)

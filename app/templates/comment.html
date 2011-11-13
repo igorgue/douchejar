@@ -1,0 +1,23 @@
+<!doctype html>
+
+<!--[if lt IE 7]> <html lang="en" class="no-js ie6"> <![endif]-->
+<!--[if IE 7]>    <html lang="en" class="no-js ie7"> <![endif]-->
+<!--[if IE 8]>    <html lang="en" class="no-js ie8"> <![endif]-->
+<!--[if IE 9]>    <html lang="en" class="no-js ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--><html lang="en" class="no-js"> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+
+    <title>Douchejar!</title>
+    <script src="{{ STATIC_URL }}javascripts/lib/modernizr.min.js"></script>
+    <script src="{{ STATIC_URL }}javascripts/lib/jquery.min.js"></script>
+    <script src="{{ STATIC_URL }}javascripts/lib/underscore.min.js"></script>
+    <script src="{{ STATIC_URL }}javascripts/lib/backbone.min.js"></script>
+    <script src="{{ STATIC_URL }}javascripts/lib/date.js"></script>
+    <script src="{{ STATIC_URL }}javascripts/lib/facebox/facebox.js"></script>
+    <script src="{{ STATIC_URL }}javascripts/lib/utils.js"></script>
+  </head>
+  <body>
+    <h1>{{ comment.comment }} <span style="font-size: small">by {{ comment.user.username }} {{ comment.created_at|timesince }}</span></h1>
+  </body>
+</html>
