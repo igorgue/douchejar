@@ -51,6 +51,9 @@ $(function() {
         for(key in data)
           view.$("[name=" + key + "]").before($("<span>").addClass("error").html(data[key].join(", ")));
 
+        if(data["__all__"])
+          alert(data["__all__"].join(", "));
+
       });
 
       return false;
