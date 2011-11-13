@@ -42,6 +42,52 @@
   </head>
 
   <body>
+<div id="wrapper">
+    <div id="nav_top">
+        <div id="nav_top_center">
+            <div id="logo">
+              <img src="{{ STATIC_URL }}images/logo.png">
+            </div>
+            <div id="slogan">
+                your foul mouth at work
+            </div>
+        </div>
+    </div>
+    <div id="content">
+        <div id="content_header">
+            <ul>
+                <li style="border-left:none !important">
+                    New
+                </li>
+                <li>
+                    Popular
+                </li>
+            </ul>
+            <p id="jar">Put $1 in the jar</p>
+        </div>
+        <div id="douchy_comments">
+            <ul>
+                <li>
+                    <div class="thumbs_bar">
+                        <a class="thumbup">&nbsp;</a><a class="thumbdown">&nbsp;</a>
+                    </div>
+                    <div class="comment_right">
+                        <div class="comment_text">
+                            Your joke was funny, but I donÕt like you so I wonÕt laugh Your joke was funny, but I donÕt like you so I wonÕt laugh Your joke 
+                        </div>
+                        <div class="social_box">
+                          <a><img src="{{ STATIC_URL }}images/twitter_icon.png" onmouseover="this.src='{{ STATIC_URL }}/images/twitter_iconhover.png'" onmouseout="this.src='{{ STATIC_URL }}/images/twitter_icon.png'"></a><a><img src="{{ STATIC_URL}}images/fb_icon.png" onmouseout="this.src='{{ STATIC_URL }}images/fb_icon.png'" onmouseover="this.src='{{ STATIC_URL }}images/fb_iconhover.png'"></a>
+                        </div>
+                        <div class="comment_meta">
+                            by <span class="dark">Javier B</span> for Saint JohnÕs Hospital  &nbsp; | &nbsp;    10 minutes ago
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
     <p>
     {% if user.is_authenticated %}
       Hello, {{ user.first_name|default:user.username }} | <a href="{% url logout %}">logout</a>
