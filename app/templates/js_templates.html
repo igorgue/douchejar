@@ -25,16 +25,16 @@
 </script>
 
 <script type="text/template" id="comment-big">
-  <h1>
-    <a href="{% url comment-builder %}/<%= id %>/" class="thumbs-up inactive">+</a> 
-    <a href="{% url comment-builder %}/<%= id %>/" class="thumbs-down inactive">-</a> 
-    #<%= id %>: <%= comment %> 
-
-    <a href="{% url comment-builder %}/<%= id %>/" class="comment-link">
-      <em>
-        by 
-        <span style="font-size: large"><%= user_name %> <%= timeAgo %></span>
-      </em>
-    </a>
-  </h1>
+  <div id="content_single_comment">
+    <div id="content_header">
+      <p id="jar"><a rel="facebox" href="#register">Put $1 in the jar</a></p>
+    </div>
+    <div id="douchy_comment_single">
+      <h1>
+        <em>
+          <%= comment %> <span style="font-size: small">by igor 11 hours, 18 minutes</span>
+        </em>
+      </h1>
+    </div>
+  </div>
 </script>

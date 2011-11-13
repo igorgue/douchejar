@@ -13,10 +13,15 @@ $(function() {
 
     home: function() {
       console.log(location.href);
+
+      $('#content_single_comment').remove();
+      $("#content").show();
     },
 
     comments: function(id) {
       console.log('/comments/' + id);
+
+      $("#content").hide();
 
       var comment = comments.find(function(comment) { return comment.get('id') === parseInt(id, 10); });
       var bigCommentView = new CommentView({

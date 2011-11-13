@@ -29,6 +29,7 @@ a {text-decoration:none; color:#fff}
 #logo {float:left}
 #nav_top_center {margin-left:auto; margin-right:auto; width: 860px; color:#fff; overflow: visible}
 #content {margin-left:auto; margin-right:auto; width: 860px; border-radius:5px; box-shadow:0px 0px 3px #333; top:0px; position:relative; background-color:#fff; margin-top:30px; margin-bottom:40px; overflow: hidden;}
+#content_single_comment {margin-left:auto; margin-right:auto; width: 860px; border-radius:5px; box-shadow:0px 0px 3px #333; top:0px; position:relative; background-color:#fff; margin-top:30px; margin-bottom:40px; overflow: hidden;}
 #content_header {width:100%; height:45px; background-color:#e8e8e8; border-radius:5px 5px 0px 0px; border-bottom:1px solid #dfdddd; margin:0px; padding:0px}
 #content_header ul li {display:inline; padding-right:25px; padding-left:25px; padding-top:14px; padding-bottom:13px; border-right:1px solid #fff; border-left:1px solid #ccc; font-weight:bold; letter-spacing:-1px; color:#3c3c3c; text-shadow:1px 1px 1px #fff}
 #content_header ul {padding:0px; float:left; margin:13px 0px}
