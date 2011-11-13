@@ -1,7 +1,7 @@
 $(function() {
 
   window.LoginView = Backbone.View.extend({
-    className: 'view',
+    className: 'view container',
     template: _.template($("#login").html()),
 
     events: {

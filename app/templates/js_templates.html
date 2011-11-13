@@ -41,9 +41,14 @@
 </script>
 
 <script type="text/template" id="login">
-  <label>Username <input type="text" name="username"></label>
-  <label>Password <input type="password" name="password"></label>
-  <a href="{% url app:login %}" class="login">Login</a><a href="{% url app:home %}" class="cancel">Cancel</a>
+  <div class="separator top">
+    <input type="text" name="username" placeholder="Username" class="field_box_long">
+    <input type="password" name="password" placeholder="Password" class="field_box_long">
+  </div>
+
+  <div class="button-container">
+    <a href="{% url app:login %}" class="login button">Login</a> <a href="{% url app:home %}" class="cancel button">Cancel</a>
+  </div>
 </script>
 
 <script type="text/template" id="register">
