@@ -48,14 +48,16 @@ $(function() {
       this.ratingModel.save({}, {
         success: function() {
           $(commentView.el).
+            find('.thumbup').
             attr('class', "thumbup enabled").
             click(function() {
               return false;
             });
 
-          $(commentView.el).find('.thumbup').click(function() { return false; });
           $(commentView.el).find('.thumbup').attr('style', "cursor: default;");
-          $(commentView.el).find('.thumbdown').attr('style', "cursor: default;");
+
+          $(commentView.el).find('.thumbdown').click(function() { return false; });
+          $(commentView.el).find('.thumbdown').attr('style', "cursor: default;").attr('class', "thumbdown");
         }
       });
 
@@ -72,14 +74,16 @@ $(function() {
       this.ratingModel.save({}, {
         success: function() {
           $(commentView.el).
+            find('.thumbdown').
             attr('class', "thumbdown enabled").
             click(function() {
               return false;
             });
 
-          $(commentView.el).find('.thumbdown').click(function() { return false; });
           $(commentView.el).find('.thumbdown').attr('style', "cursor: default;");
-          $(commentView.el).find('.thumbup').attr('style', "cursor: default;");
+
+          $(commentView.el).find('.thumbup').click(function() { return false; });
+          $(commentView.el).find('.thumbup').attr('style', "cursor: default;").attr('class', "thumbup");
         }
       });
 
