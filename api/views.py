@@ -13,7 +13,7 @@ class Comments(View):
         """
         Adds new comment
         """
-        data = request.POST.copy()
+        data = simplejson.loads(request.read())
         data['user'] = request.user.id
 
         form = forms.Comment(data)
@@ -55,7 +55,7 @@ class CommentRating(View):
         """
         Adds a new rating for the comment (+/-)
         """
-        return {'message': 'hello-post'}
+        return {'message': 'hello-put'}
 
 
 class Organizations(View):
