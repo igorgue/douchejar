@@ -6,7 +6,8 @@ $(function() {
 
     events: {
       'click a.register': 'register',
-      'click a.cancel': 'cancel'
+      'click a.cancel': 'cancel',
+      'keypress input': 'filterOnEnter'
     },
 
     initialize: function() {
@@ -19,6 +20,11 @@ $(function() {
 
       this.model = User;
       this.model.bind('reset', 'render');
+    },
+
+    filterOnEnter: function(e) {
+      if(e.keyCode != 13) return;
+      this.register();
     },
 
     render: function() {
