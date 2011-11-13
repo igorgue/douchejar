@@ -22,17 +22,6 @@
     color: grey;
 }
 
-input[type="text"], input[type="password"] {
-    color: #666;
-    background: white url("/static/images/input_bg.gif") no-repeat;
-    background-repeat: repeat-x;
-    border: solid 1px #BBB;
-    font-size: 13px;
-    font-weight: bold;
-    padding: 6px;
-    border-radius: 3px;
-}
-
 body {margin:0; padding:0; background-image: url(/static/images/grey_bkgd.jpeg); font-family:Arial, Helvetica,sans-serif}
 li {list-style:none}
 a {text-decoration:none; color:#fff}
@@ -60,4 +49,16 @@ a {text-decoration:none; color:#fff}
 .dark {color:#333}
 .thumbup {margin:0px; padding:0px; background-image: url(/static/images/thumbsup.jpg)}
 .thumbdown {margin:0px; padding:0px; background-image: url(/static/images/thumbsdown.jpg)}
-.comment-link {color: grey};
+.comment-link {color: grey}
+
+input[type="text"], input[type="password"] {
+    color: #666;
+    background: white url("/static/images/input_bg.gif") no-repeat;
+    background-repeat: repeat-x;
+    border: solid 1px #BBB;
+    font-size: 13px;
+    font-weight: bold;
+    padding: 6px;
+    border-radius: 3px;
+}
+
