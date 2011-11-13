@@ -75,8 +75,12 @@ $(function() {
       return false;
     },
 
-    openComment: function() {
-      Application.navigate("comments/" + this.model.get('id'), true);
+    openComment: function(event) {
+      var href = $(event.currentTarget).attr("href");
+
+      Application.navigate(href.substr(1, href.length), true);
+
+      return false;
     }
   });
 

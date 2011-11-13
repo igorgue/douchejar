@@ -7,10 +7,12 @@ $(function() {
 
     routes: {
       '': "home",
-      'comments/:id': "comments"
+      'comments/:id': "comments",
+      'comments/:id/': "comments"
     },
 
     home: function() {
+      console.log(location.href);
     },
 
     comments: function(id) {
