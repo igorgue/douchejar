@@ -6,7 +6,8 @@ $(function() {
 
     events: {
       'click .thumbs-up': "thumbsUp",
-      'click .thumbs-down': "thumbsDown"
+      'click .thumbs-down': "thumbsDown",
+      'click .comment-link': "openComment"
     },
 
     initialize: function() {
@@ -68,6 +69,10 @@ $(function() {
       });
 
       return false;
+    },
+
+    openComment: function() {
+      Application.navigate("comments/" + this.model.get('id'));
     }
   });
 
