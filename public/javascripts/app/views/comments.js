@@ -41,16 +41,22 @@ $(function() {
     thumbsUp: function() {
       console.log('thumbs-up for ' + this.model.get('id'));
 
+      var commentView = this;
+
       this.ratingModel.set({ thumbs_up: "+" });
 
       this.ratingModel.save({}, {
         success: function() {
           $(commentView.el).
-            find('.thumbs-down').
-            attr('class', "thumbs-down disabled").
+            find('.thumbdown').
+            attr('class', "thumbdown disabled").
             click(function() {
               return false;
             });
+
+          $(commentView.el).find('.thumbup').click(function() { return false; });
+          $(commentView.el).find('.thumbup').attr('style', "cursor: default;");
+          $(commentView.el).find('.thumbdown').attr('style', "cursor: default;");
         }
       });
 
@@ -67,11 +73,15 @@ $(function() {
       this.ratingModel.save({}, {
         success: function() {
           $(commentView.el).
-            find('.thumbs-up').
-            attr('class', "thumbs-up disabled").
+            find('.thumbup').
+            attr('class', "thumbup disabled").
             click(function() {
               return false;
             });
+
+          $(commentView.el).find('.thumbdown').click(function() { return false; });
+          $(commentView.el).find('.thumbdown').attr('style', "cursor: default;");
+          $(commentView.el).find('.thumbup').attr('style', "cursor: default;");
         }
       });
 

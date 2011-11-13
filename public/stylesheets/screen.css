@@ -73,7 +73,9 @@ a {text-decoration:none; color:#fff}
 .left {float:left}
 .dark {color:#333}
 .thumbup {margin:0px; padding:0px; background-image: url(/static/images/thumbsup.jpg)}
+.thumbup.disabled {margin:0px; padding:0px; background-image: url(/static/images/thumbsup_disabled.jpg)}
 .thumbdown {margin:0px; padding:0px; background-image: url(/static/images/thumbsdown.jpg)}
+.thumbdown.disabled {margin:0px; padding:0px; background-image: url(/static/images/thumbsdown_disabled.jpg)}
 .comment-link { color: #ccc; }
 
 #douchy_comment_single {

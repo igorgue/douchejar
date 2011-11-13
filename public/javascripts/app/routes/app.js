@@ -22,6 +22,11 @@ $(function() {
       console.log('/comments/' + id);
 
       var comment = comments.find(function(comment) { return comment.get('id') === parseInt(id, 10); });
+
+      if (typeof comment === 'undefined') {
+        return false;
+      }
+
       var bigCommentView = new CommentView({
         template: _.template($("#comment-big").html()),
         model: comment,
