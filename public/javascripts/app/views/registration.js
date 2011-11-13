@@ -23,6 +23,18 @@ $(function() {
     },
 
     register: function(){
+      var view = this;
+
+      var model = new Comment({
+        comment: this.$("[name=comment]").val(),
+        organization: this.$("[name=organization]").val(),
+        user_name: this.model.get("username")
+      });
+
+      model.save().success(function(){
+        comments.add(model);
+        view.remove();
+      });
 
       return false;
     },

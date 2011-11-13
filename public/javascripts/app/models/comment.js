@@ -4,7 +4,7 @@ $(function() {
       comment: "",
       price: 1.00,
       user: {},
-      created_at: Date()
+      created_at: ''
     },
 
     url: "/api/comments/",
@@ -16,7 +16,11 @@ $(function() {
 
   window.Comments = Backbone.Collection.extend({
     model: Comment,
-    url: "/api/comments/"
+    url: "/api/comments/",
+    
+    comparator: function(comment){
+      return -(new Date(comment.get("created_at"))).milliseconds();
+    }
   });
 
   window.comments = new Comments();

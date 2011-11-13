@@ -23,7 +23,7 @@ class Comments(View):
 
         if form.is_valid():
             form.save()
-            return {"id": form.instance.id}
+            return {"id": form.instance.id, "created_at": form.instance.created_at}
 
         return form.errors.copy(), HttpResponseBadRequest
 

@@ -25,10 +25,12 @@ $(function() {
     login: function(){
       var view = this;
 
-      view.model.set({
+      var model = view.model.set({
         username: this.$("[name=username]").val(),
         password: this.$("[name=password]").val()
-      }).save().success(function(){
+      });
+      
+      model.save().success(function(){
         view.remove();
       });
 

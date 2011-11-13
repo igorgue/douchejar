@@ -9,7 +9,7 @@ $(function() {
 
     url: "/api/user/"
   });
-  
+
   window.Login = Backbone.Model.extend({
     defaults: {
       username: "",
@@ -22,6 +22,6 @@ $(function() {
       window.User = window.User.set(data);
     }
   });
-  
+
   window.User = new Users();
 });
