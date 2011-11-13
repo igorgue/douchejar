@@ -22,7 +22,7 @@ $(function() {
 
       $(this.el).html(this.template(data));
 
-      return this;
+     return this;
     },
 
     thumbsUp: function() {
@@ -33,18 +33,42 @@ $(function() {
         thumbs_up: "+"
       });
 
-      rating.save();
+      rating.save({}, {
+        success: function() {
+          $(commentView.el).
+            find('.thumbs-down').
+            attr('class', "thumbs-down disabled").
+            click(function() {
+              return false;
+            });
+        }
+      });
+
+      return false;
     },
 
     thumbsDown: function() {
       console.log('thumbs-down for ' + this.model.get('id'));
+
+      var commentView = this;
 
       var rating = new Rating({
         comment: this.model.get('id'),
         thumbs_up: "-"
       });
 
-      rating.save();
+      rating.save({}, {
+        success: function() {
+          $(commentView.el).
+            find('.thumbs-up').
+            attr('class', "thumbs-up disabled").
+            click(function() {
+              return false;
+            });
+        }
+      });
+
+      return false;
     }
   });
 
