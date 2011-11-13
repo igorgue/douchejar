@@ -97,9 +97,9 @@ $(function() {
         model.save().success(function(){
           $('a.logout').show();
           $('a.login').hide();
-          view.render();
 
           postComment();
+          view.render();
         }).error(function(request){
           var data = jQuery.parseJSON(request.responseText);
 
