@@ -40,7 +40,12 @@ $(function() {
 $(document).ready(function(){
   $("a.login").click(function(){
     $("#overlay").append((new LoginView()).render().el)
-    
+
+    return false;
+  });
+  $("#logo > a").click(function(){
+    Application.navigate('', true);
+
     return false;
   });
 });

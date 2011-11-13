@@ -3,9 +3,9 @@ from django.contrib import admin
 
 from app import models
 
-admin.site.register(models.Comment)
-admin.site.register(models.Rating)
-admin.site.register(models.Organization)
+# admin.site.register(models.Comment)
+# admin.site.register(models.Rating)
+# admin.site.register(models.Organization)
 
 admin.autodiscover()
 
@@ -17,5 +17,5 @@ urlpatterns = patterns('',
     url(r'^admin/?', include(admin.site.urls)),
 
     # App stuff.
-    url(r'', include('app.urls')),
+    url(r'', include('app.urls', namespace='app', app_name='app')),
 )

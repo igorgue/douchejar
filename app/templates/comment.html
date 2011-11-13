@@ -18,31 +18,22 @@
     <script src="{{ STATIC_URL }}javascripts/lib/utils.js"></script>
 
     <link type="text/css" rel="stylesheet" href="{{ STATIC_URL }}stylesheets/screen.css">
-    <link type="text/css" rel="stylesheet" href="{{ STATIC_URL }}javascripts/lib/facebox/facebox.css">
-
-    <script type="text/javascript" charset="utf-8">
-      $.facebox.settings.closeImage = "{{ STATIC_URL }}javascripts/lib/facebox/closelabel.png";
-      $.facebox.settings.loadingImage = "{{ STATIC_URL }}javascripts/lib/facebox/loading.gif";
-
-      $(document).ready(function($) {
-        $('a[rel*=facebox]').facebox();
-      });
-    </script>
   </head>
+  <body>
     <div id="wrapper">
       <div id="nav_top">
         <div id="nav_top_center">
           <div id="logo">
-            <a href="{% url home %}">
+            <a href="{% url app:home %}">
               <img src="{{ STATIC_URL }}images/logo.png">
             </a>
           </div>
           <div id="slogan">
             your foul mouth at work |
             {% if user.is_authenticated %}
-              <a href="{% url logout %}">logout</a>
+              <a href="{% url app:logout %}">logout</a>
             {% else %}
-              <a href="#login" rel="facebox">login</a>
+              <a href="{% url app:login %}" rel="facebox">login</a>
             {% endif %}
           </div>
         </div>
@@ -61,19 +52,5 @@
       </div>
     </div>
 
-    <div id="register" style="display: none;">
-    </div>
-
-    <div id="login" style="display: none;">
-      <form action="{% url home %}" method="post" accept-charset="utf-8">
-        <table border="0">
-          {{ login_form.as_table }}
-        </table>
-        <p><input type="submit" value="Login" /></p>
-      </form>
-    </div>
-
-    <div id="register" style="display: none;">
-    </div>
   </body>
 </html>

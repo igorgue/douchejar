@@ -1,7 +1,7 @@
 <script type="text/template" id="comment">
   <div class="thumbs_bar">
-    <a href="{% url comment-builder %}/<%= id %>/" class="thumbup">&nbsp;</a>
-    <a href="{% url comment-builder %}/<%= id %>/" class="thumbdown">&nbsp;</a>
+    <a href="{% url app:comment-builder %}/<%= id %>/" class="thumbup">&nbsp;</a>
+    <a href="{% url app:comment-builder %}/<%= id %>/" class="thumbdown">&nbsp;</a>
   </div>
 
   <div class="comment_right">
@@ -19,7 +19,7 @@
     </div>
 
     <div class="comment_meta">
-      <a href="{% url comment-builder %}/<%= id %>/" class="comment-link">by <span class="dark"><%= user_name %></span> <%= timeAgo %></a>
+      <a href="{% url app:comment-builder %}/<%= id %>/" class="comment-link">by <span class="dark"><%= user_name %></span> <%= timeAgo %></a>
     </div>
   </div>
 </script>
@@ -42,5 +42,5 @@
 <script type="text/template" id="login">
   <label>Username <input type="text" name="username"></label>
   <label>Password <input type="password" name="password"></label>
-  <a href="{% url login %}" class="login">Login</a><a href="{% url home %}" class="cancel">Cancel</a>
+  <a href="{% url app:login %}" class="login">Login</a><a href="{% url app:home %}" class="cancel">Cancel</a>
 </script>
