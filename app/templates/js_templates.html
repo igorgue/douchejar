@@ -13,9 +13,9 @@
       <a href="https://twitter.com/share?url=http://douchejar.org/comments/<%= id %>&text=What a douchebag!" target="blank">
         <img src="{{ STATIC_URL }}images/twitter_icon.png" onmouseover="this.src='{{ STATIC_URL }}/images/twitter_iconhover.png'" onmouseout="this.src='{{ STATIC_URL }}/images/twitter_icon.png'">
       </a>
-      <!--<a>-->
-        <!--<img src="{{ STATIC_URL}}images/fb_icon.png" onmouseout="this.src='{{ STATIC_URL }}images/fb_icon.png'" onmouseover="this.src='{{ STATIC_URL }}images/fb_iconhover.png'">-->
-      <!--</a>-->
+      <a href="http://www.facebook.com/sharer/sharer.php?u=http://douchejar.org/comments/<%= id %>" target="blank">
+        <img src="{{ STATIC_URL}}images/fb_icon.png" onmouseout="this.src='{{ STATIC_URL }}images/fb_icon.png'" onmouseover="this.src='{{ STATIC_URL }}images/fb_iconhover.png'">
+      </a>
     </div>
 
     <div class="comment_meta">
@@ -27,7 +27,7 @@
 <script type="text/template" id="comment-big">
   <h1>
     <em>
-      <%= comment %> <span style="font-size: small">by igor 11 hours, 18 minutes</span>
+      <%= comment %> <span style="font-size: small">by <%= user_name %> <%= timeAgo %></span>
     </em>
   </h1>
 </script>
