@@ -69,7 +69,7 @@ a {text-decoration:none; color:#fff}
 .dark {color:#333}
 .thumbup {margin:0px; padding:0px; background-image: url(/static/images/thumbsup.jpg)}
 .thumbdown {margin:0px; padding:0px; background-image: url(/static/images/thumbsdown.jpg)}
-.comment-link { color: #ccc; };
+.comment-link { color: #ccc; }
 
 #douchy_comment_single {
     text-align: center;
