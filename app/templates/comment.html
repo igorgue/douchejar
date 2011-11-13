@@ -16,9 +16,63 @@
     <script src="{{ STATIC_URL }}javascripts/lib/date.js"></script>
     <script src="{{ STATIC_URL }}javascripts/lib/facebox/facebox.js"></script>
     <script src="{{ STATIC_URL }}javascripts/lib/utils.js"></script>
+
+    <link type="text/css" rel="stylesheet" href="{{ STATIC_URL }}stylesheets/screen.css">
   </head>
-  <body>
-    <a href="{% url home %}">home</a>
-    <h1>{{ comment.comment }} <span style="font-size: small">by {{ comment.user.username }} {{ comment.created_at|timesince }}</span></h1>
+    <div id="wrapper">
+      <div id="nav_top">
+        <div id="nav_top_center">
+          <div id="logo">
+            <a href="{% url home %}">
+              <img src="{{ STATIC_URL }}images/logo.png">
+            </a>
+          </div>
+          <div id="slogan">
+            your foul mouth at work |
+            {% if user.is_authenticated %}
+              <a href="{% url logout %}">logout</a>
+            {% else %}
+              <a href="#login" rel="facebox">login</a>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+      <div id="content">
+        <div id="content_header">
+          <p id="jar"><a rel="facebox" href="#register">Put $1 in the jar</a></p>
+        </div>
+        <div id="douchy_comment_single">
+          <h1>
+            <em>
+              {{ comment.comment }} <span style="font-size: small">by {{ comment.user.username }} {{ comment.created_at|timesince }}</span>
+            </em>
+          </h1>
+        </div>
+      </div>
+    </div>
+
+    <div id="register" style="display: none;">
+    </div>
+
+    <div id="login" style="display: none;">
+      <form action="{% url home %}" method="post" accept-charset="utf-8">
+        <table border="0">
+          {{ login_form.as_table }}
+        </table>
+        <p><input type="submit" value="Login" /></p>
+      </form>
+    </div>
+
+    <div id="register" style="display: none;">
+    </div>
   </body>
+
+    {% comment %}
+      <p>
+      </p>
+    {% endcomment %}
+  <!--<body>-->
+    <!--<a href="{% url home %}">home</a>-->
+    <!--<h1>{{ comment.comment }} <span style="font-size: small">by {{ comment.user.username }} {{ comment.created_at|timesince }}</span></h1>-->
+  <!--</body>-->
 </html>

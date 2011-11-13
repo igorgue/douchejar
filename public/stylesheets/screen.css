@@ -51,6 +51,10 @@ a {text-decoration:none; color:#fff}
 .thumbdown {margin:0px; padding:0px; background-image: url(/static/images/thumbsdown.jpg)}
 .comment-link {color: grey}
 
+#douchy_comment_single {
+    text-align: center;
+}
+
 input[type="text"], input[type="password"] {
     color: #666;
     background: white url("/static/images/input_bg.gif") no-repeat;
