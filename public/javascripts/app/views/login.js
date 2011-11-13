@@ -32,6 +32,7 @@ $(function() {
       
       model.save().success(function(){
         view.remove();
+        $("#overlay").addClass("hide");
       });
 
       return false;
@@ -39,6 +40,7 @@ $(function() {
 
     cancel: function(){
       this.remove();
+      $("#overlay").addClass("hide");
 
       return false;
     }

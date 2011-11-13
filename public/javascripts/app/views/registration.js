@@ -35,6 +35,7 @@ $(function() {
         model.save().success(function(){
           comments.add(model);
           view.remove();
+          $("#overlay").addClass("hide");
         });
       }
 
@@ -58,6 +59,7 @@ $(function() {
 
     cancel: function(){
       this.remove();
+      $("#overlay").addClass("hide");
 
       return false;
     }

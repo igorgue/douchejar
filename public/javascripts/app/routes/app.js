@@ -39,13 +39,13 @@ $(function() {
 
 $(document).ready(function(){
   $("a.login").click(function(){
-    $("#overlay").append((new LoginView()).render().el);
+    $("#overlay").removeClass("hide").append((new LoginView()).render().el);
 
     return false;
   });
 
   $("a.register").click(function(){
-    $("#overlay").append((new RegistrationView()).render().el);
+    $("#overlay").removeClass("hide").append((new RegistrationView()).render().el);
 
     return false;
   });
