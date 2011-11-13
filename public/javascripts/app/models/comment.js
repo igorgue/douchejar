@@ -4,7 +4,9 @@ $(function() {
       comment: "",
       price: 1.00,
       user: {},
-      created_at: ''
+      created_at: '',
+      rating_thumbs_up: null,
+      rating: null
     },
 
     url: "/api/comments/",
