@@ -27,10 +27,24 @@ $(function() {
 
     thumbsUp: function() {
       console.log('thumbs-up for ' + this.model.get('id'));
+
+      var rating = new Rating({
+        comment: this.get('id'),
+        thumbs_up: true
+      });
+
+      rating.save();
     },
 
     thumbsDown: function() {
       console.log('thumbs-down for ' + this.model.get('id'));
+
+      var rating = new Rating({
+        comment: this.get('id'),
+        thumbs_up: false
+      });
+
+      rating.save();
     }
   });
 
