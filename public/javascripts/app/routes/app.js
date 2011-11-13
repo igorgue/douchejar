@@ -38,7 +38,7 @@ $(function() {
 
 $(document).ready(function(){
   $("a.login").click(function(){
-    $("#overlay").append((new LoginView()).render().el)
+    $("#overlay").append((new LoginView()).render().el);
 
     return false;
   });
