@@ -93,6 +93,7 @@ $(function() {
     },
 
     render: function() {
+      $(this.el).empty();
       var commentListView = this;
 
       comments.each(function(comment) {
